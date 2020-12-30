@@ -1,0 +1,52 @@
+{
+    "words": [
+        {
+            "id": 0,
+            "meaning": "22",
+            "loans": {
+                "zh": "acia",
+                "en": "twentitu",
+                "es": "beintizos",
+                "hi": "bais",
+                "bn": "baic",
+                "pt": "vitiidoic",
+                "ru": "dvatsidydva",
+                "fr": "vetdo",
+                "ar": "isnanwaicrun",
+                "ja": "nijuni",
+                "id": "duapuluhdua",
+                "ur": "bais",
+                "de": "tsvaiunttsvantsixi",
+                "te": "iravairendu",
+                "tr": "yirmiiki",
+                "ko": "sumultul",
+                "vi": "haymiayhay",
+                "jv": "rolikur",
+                "sw": "ishirininambili",
+                "lo": "yisipson"
+            },
+            "origins": {
+                "zh": "二十二 èrshí'èr",
+                "en": "twenty-two twĕn'tē to͞oʹ",
+                "es": "veintidós [bẽĩ̯n̪t̪iˈðos]",
+                "hi": "बाईस",
+                "bn": "বাইশ baish",
+                "pt": "vinte e dois",
+                "ru": "двадцать два [ˈdvat͡s(ː)ɨdʲ ˈdva]",
+                "fr": "vingt-deux /vɛ̃t.dø/",
+                "ar": "اثنان وعشرون iṯnani wa-ʿišrūn",
+                "ja": "二十二 にじゅうに",
+                "id": "dua puluh dua",
+                "ur": "بائیس bāīs",
+                "de": "zweiundzwanzig /ˌt͡svaɪ̯ʊntˈt͡svant͡sɪç/",
+                "te": "ఇరవై రెండు iravai reṇḍu",
+                "tr": "yirmi iki",
+                "ko": "스물 둘 (seumul dul) [sʰɯmuɭ tuːɭ]",
+                "vi": "hai mươi hai [haːj˧˧ mɨəj˧˧ haːj˧˧]",
+                "jv": "rolikur",
+                "sw": "ishirini na mbili",
+                "lo": "ยี่สิบสอง (yîi-sìp-sɔ̌ɔng)"
+            }
+        }
+    ]
+}
