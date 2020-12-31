@@ -1,6 +1,7 @@
 use serde::{Deserialize, Serialize};
+use std::cmp::Ordering;
+use std::collections::BTreeSet;
 use std::collections::HashMap;
-
 use std::fs::File;
 use std::io::BufReader;
 
@@ -175,9 +176,22 @@ impl StringExt for String {
     }
 }
 
+#[derive(PartialEq)]
 pub struct CandidateWord {
-    pub word: String,
     pub score: f64,
+    pub word: String,
+}
+
+impl PartialOrd for CandidateWord {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        self.score.partial_cmp(&other.score)
+    }
+}
+
+pub struct CandidateWords {
+    pub super_languages: SuperLanguages,
+    pub super_words: SuperWords,
+    pub words: BTreeSet<CandidateWord>,
 }
 
 #[warn(dead_code)]
