@@ -101,14 +101,14 @@ impl StringExt for String {
     }
 
     fn is_match_w202_and_w203(&self) -> bool {
-        match (self.nth(0), self.nth(1)) {
+        match (self.rev_nth(1), self.rev_nth(0)) {
             (Some(a), Some(b)) => a != b,
             _ => true,
         }
     }
 
     fn is_match_w204(&self) -> bool {
-        match (self.nth(0), self.nth(1)) {
+        match (self.rev_nth(1), self.rev_nth(0)) {
             (Some(a), Some(b)) => {
                 !(a.is_voiced() && b.is_unvoiced() || a.is_unvoiced() && b.is_voiced())
             }
@@ -117,7 +117,7 @@ impl StringExt for String {
     }
 
     fn is_match_w205(&self) -> bool {
-        match (self.nth(0), self.nth(1)) {
+        match (self.rev_nth(1), self.rev_nth(0)) {
             (Some(a), Some(b)) => {
                 !(a.is_xhyw() && b.is_consonant() || a.is_consonant() && b.is_xhyw())
             }
@@ -126,7 +126,7 @@ impl StringExt for String {
     }
 
     fn is_match_w206(&self) -> bool {
-        match (self.nth(0), self.nth(1), self.nth(2)) {
+        match (self.rev_nth(2), self.rev_nth(1), self.rev_nth(0)) {
             (Some('t'), Some('s'), Some(_)) => true,
             (Some('t'), Some('c'), Some(_)) => true,
             (Some('d'), Some('z'), Some(_)) => true,
@@ -177,6 +177,7 @@ impl StringExt for String {
     }
 }
 
+#[derive(Debug)]
 pub struct CandidateWord {
     pub score: f64,
     pub word: String,
@@ -192,7 +193,10 @@ impl Eq for CandidateWord {}
 
 impl PartialOrd for CandidateWord {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
-        self.score.partial_cmp(&other.score)
+        match self.score.partial_cmp(&other.score) {
+            Some(Ordering::Equal) => self.word.partial_cmp(&other.word),
+            x => x,
+        }
     }
 }
 
@@ -212,27 +216,34 @@ pub struct CandidateWords<'a> {
 }
 
 impl CandidateWords<'_> {
-    fn cadidate_length(&self) -> usize {
+    fn cadidate_length(&self) -> i32 {
+        let weight_sum: f64 = self.super_languages.languages.values().sum();
         let mut sum = 0.0;
         for (language, loan) in &self.super_word.loans {
-            sum += loan.len() as f64 * self.super_languages.languages[language];
+            sum += loan.len() as f64 * self.super_languages.languages[language] / weight_sum;
         }
-        sum.floor() as usize
+        sum.ceil() as i32
     }
 
-    fn cadidate_phonemes(&self, n: usize) -> BTreeSet<char> {
+    fn cadidate_phonemes(&self, n: i32) -> BTreeSet<char> {
         let c_len = self.cadidate_length();
         let mut set = BTreeSet::new();
         for (_, loan) in &self.super_word.loans {
-            let len = loan.len();
+            let len = loan.len() as i32;
             if len < c_len {
-                &loan[cmp::max(0, n - (c_len - len))..cmp::min(len, n + 1)]
-                    .chars()
-                    .map(|c| set.insert(c));
+                let start = cmp::max(0, n - (c_len - len)) as usize;
+                let end = cmp::min(len, n + 1) as usize;
+                &loan[start..end].chars().for_each(|c| {
+                    set.insert(c);
+                });
             } else if len > c_len {
-                &loan[n..n + len - c_len + 1].chars().map(|c| set.insert(c));
+                let start = n as usize;
+                let end = (n + len - c_len + 1) as usize;
+                &loan[start..end].chars().for_each(|c| {
+                    set.insert(c);
+                });
             } else {
-                if let Some(c) = loan.nth(n) {
+                if let Some(c) = loan.nth(n as usize) {
                     set.insert(c);
                 }
             }
@@ -240,24 +251,31 @@ impl CandidateWords<'_> {
         set
     }
 
-    fn generate(&self) -> BTreeSet<CandidateWord> {
-        self.generate_rec(0, self.cadidate_length(), BTreeSet::new())
+    fn generate(&mut self) {
+        let set = vec![CandidateWord {
+            score: 0.0,
+            word: "".to_string(),
+        }]
+        .into_iter()
+        .collect();
+        self.words = self.generate_rec(0, self.cadidate_length(), set);
     }
 
     fn generate_rec(
         &self,
-        n: usize,
-        len: usize,
+        n: i32,
+        len: i32,
         last_set: BTreeSet<CandidateWord>,
     ) -> BTreeSet<CandidateWord> {
-        if n == len {
+        if n >= len {
             last_set
         } else {
             let mut set = BTreeSet::new();
+            let cps = self.cadidate_phonemes(n);
             for cw in last_set {
-                for cp in self.cadidate_phonemes(n) {
+                for cp in &cps {
                     let mut ncww = cw.word.clone();
-                    ncww.push(cp);
+                    ncww.push(*cp);
                     if ncww.is_match_w202_and_w203()
                         && ncww.is_match_w204()
                         && ncww.is_match_w205()
@@ -267,29 +285,33 @@ impl CandidateWords<'_> {
                             || (n == len - 1 && ncww.is_match_w209())
                             || (n != 0 && n != len - 1))
                     {
+                        assert!(ncww.is_match_w202_and_w203());
                         let ncw = CandidateWord {
-                            score: self.score(&ncww),
+                            score: if n == len - 1 { self.score(&ncww) } else { 0.0 },
                             word: ncww,
                         };
                         set.insert(ncw);
                     }
                 }
             }
+            println!("n = {}, len = {}, set.len() = {}", n, len, set.len());
             self.generate_rec(n + 1, len, set)
         }
     }
 
     fn score(&self, word: &str) -> f64 {
+        let weight_sum: f64 = self.super_languages.languages.values().sum();
         if word.len() < 2 {
             0.0
         } else {
             let mut score = 0.0;
-            for (_, weight) in &self.super_languages.languages {
+            for (language, weight) in &self.super_languages.languages {
                 'search: for i in (1..word.len()).rev() {
-                    for j in 0..word.len() {
-                        let subword = &word[i..j];
-                        if word.contains(subword) {
-                            score += i as f64 * weight * (if i == 1 { 0.001 } else { 1.0 });
+                    for j in 0..=word.len() - i {
+                        let subword = &word[j..j + i];
+                        if self.super_word.loans[language].contains(subword) {
+                            score +=
+                                i as f64 * weight / weight_sum * (if i == 1 { 0.001 } else { 1.0 });
                             break 'search;
                         }
                     }
@@ -300,20 +322,24 @@ impl CandidateWords<'_> {
     }
 }
 
-fn main() {
+pub fn main() {
     let file1 = File::open("data/language_weight.json").unwrap();
     let file2 = File::open("data/super_words.json").unwrap();
     let reader1 = BufReader::new(file1);
     let reader2 = BufReader::new(file2);
     let super_languages: SuperLanguages = serde_json::from_reader(reader1).unwrap();
     let super_words: SuperWords = serde_json::from_reader(reader2).unwrap();
-    println!("{:?}", super_languages);
-    println!("{:?}", super_words);
     for super_word in super_words.words {
-        let a = CandidateWords {
+        let mut a = CandidateWords {
             super_languages: &super_languages,
             super_word: super_word,
             words: BTreeSet::new(),
         };
+        a.generate();
+        for c in a.words {
+            if c.score > 1.0 {
+                println!("{:?}", c);
+            }
+        }
     }
 }

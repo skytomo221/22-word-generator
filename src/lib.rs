@@ -10,6 +10,7 @@ mod tests {
         assert!("ap".to_string().is_match_w202_and_w203());
         assert!(!"aa".to_string().is_match_w202_and_w203());
         assert!(!"pp".to_string().is_match_w202_and_w203());
+        assert!(!"baa".to_string().is_match_w202_and_w203());
         assert!("a".to_string().is_match_w202_and_w203());
         assert!("p".to_string().is_match_w202_and_w203());
         assert!("".to_string().is_match_w202_and_w203());
