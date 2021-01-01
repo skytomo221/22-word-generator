@@ -1,11 +1,12 @@
 use serde::{Deserialize, Serialize};
+use std::cmp;
 use std::cmp::Ordering;
 use std::collections::BTreeSet;
 use std::collections::HashMap;
 use std::fs::File;
 use std::io::BufReader;
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct SuperLanguages {
     languages: HashMap<String, f64>,
 }
@@ -176,11 +177,18 @@ impl StringExt for String {
     }
 }
 
-#[derive(PartialEq)]
 pub struct CandidateWord {
     pub score: f64,
     pub word: String,
 }
+
+impl PartialEq for CandidateWord {
+    fn eq(&self, other: &Self) -> bool {
+        self.word == other.word
+    }
+}
+
+impl Eq for CandidateWord {}
 
 impl PartialOrd for CandidateWord {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
@@ -188,13 +196,110 @@ impl PartialOrd for CandidateWord {
     }
 }
 
-pub struct CandidateWords {
-    pub super_languages: SuperLanguages,
-    pub super_words: SuperWords,
+impl Ord for CandidateWord {
+    fn cmp(&self, other: &Self) -> Ordering {
+        match self.partial_cmp(&other) {
+            Some(x) => x,
+            _ => self.word.cmp(&other.word),
+        }
+    }
+}
+
+pub struct CandidateWords<'a> {
+    pub super_languages: &'a SuperLanguages,
+    pub super_word: SuperWord,
     pub words: BTreeSet<CandidateWord>,
 }
 
-#[warn(dead_code)]
+impl CandidateWords<'_> {
+    fn cadidate_length(&self) -> usize {
+        let mut sum = 0.0;
+        for (language, loan) in &self.super_word.loans {
+            sum += loan.len() as f64 * self.super_languages.languages[language];
+        }
+        sum.floor() as usize
+    }
+
+    fn cadidate_phonemes(&self, n: usize) -> BTreeSet<char> {
+        let c_len = self.cadidate_length();
+        let mut set = BTreeSet::new();
+        for (_, loan) in &self.super_word.loans {
+            let len = loan.len();
+            if len < c_len {
+                &loan[cmp::max(0, n - (c_len - len))..cmp::min(len, n + 1)]
+                    .chars()
+                    .map(|c| set.insert(c));
+            } else if len > c_len {
+                &loan[n..n + len - c_len + 1].chars().map(|c| set.insert(c));
+            } else {
+                if let Some(c) = loan.nth(n) {
+                    set.insert(c);
+                }
+            }
+        }
+        set
+    }
+
+    fn generate(&self) -> BTreeSet<CandidateWord> {
+        self.generate_rec(0, self.cadidate_length(), BTreeSet::new())
+    }
+
+    fn generate_rec(
+        &self,
+        n: usize,
+        len: usize,
+        last_set: BTreeSet<CandidateWord>,
+    ) -> BTreeSet<CandidateWord> {
+        if n == len {
+            last_set
+        } else {
+            let mut set = BTreeSet::new();
+            for cw in last_set {
+                for cp in self.cadidate_phonemes(n) {
+                    let mut ncww = cw.word.clone();
+                    ncww.push(cp);
+                    if ncww.is_match_w202_and_w203()
+                        && ncww.is_match_w204()
+                        && ncww.is_match_w205()
+                        && ncww.is_match_w206()
+                        && ncww.is_match_w207()
+                        && ((n == 0 && ncww.is_match_w208() && ncww.is_match_w210())
+                            || (n == len - 1 && ncww.is_match_w209())
+                            || (n != 0 && n != len - 1))
+                    {
+                        let ncw = CandidateWord {
+                            score: self.score(&ncww),
+                            word: ncww,
+                        };
+                        set.insert(ncw);
+                    }
+                }
+            }
+            self.generate_rec(n + 1, len, set)
+        }
+    }
+
+    fn score(&self, word: &str) -> f64 {
+        if word.len() < 2 {
+            0.0
+        } else {
+            let mut score = 0.0;
+            for (_, weight) in &self.super_languages.languages {
+                'search: for i in (1..word.len()).rev() {
+                    for j in 0..word.len() {
+                        let subword = &word[i..j];
+                        if word.contains(subword) {
+                            score += i as f64 * weight * (if i == 1 { 0.001 } else { 1.0 });
+                            break 'search;
+                        }
+                    }
+                }
+            }
+            score
+        }
+    }
+}
+
 fn main() {
     let file1 = File::open("data/language_weight.json").unwrap();
     let file2 = File::open("data/super_words.json").unwrap();
@@ -204,4 +309,11 @@ fn main() {
     let super_words: SuperWords = serde_json::from_reader(reader2).unwrap();
     println!("{:?}", super_languages);
     println!("{:?}", super_words);
+    for super_word in super_words.words {
+        let a = CandidateWords {
+            super_languages: &super_languages,
+            super_word: super_word,
+            words: BTreeSet::new(),
+        };
+    }
 }
