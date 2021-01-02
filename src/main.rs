@@ -22,6 +22,7 @@ pub struct SuperWord {
     meaning: String,
     loans: BTreeMap<String, String>,
     origins: BTreeMap<String, String>,
+    note: Option<String>,
 }
 
 trait CharExt {
@@ -179,9 +180,7 @@ impl StringExt for String {
 
     fn is_match_w211(&self) -> bool {
         match (self.rev_nth(2), self.rev_nth(1), self.rev_nth(0)) {
-            (Some(a), Some(b), Some(c)) => {
-                !(a.is_vowel() && b.is_vowel() && c.is_vowel())
-            }
+            (Some(a), Some(b), Some(c)) => !(a.is_vowel() && b.is_vowel() && c.is_vowel()),
             _ => true,
         }
     }
@@ -286,6 +285,16 @@ impl CandidateWords<'_> {
     fn generate_rec(&self, n: i32, len: i32, last_vec: Vec<CandidateWord>) -> Vec<CandidateWord> {
         if n >= len {
             last_vec
+        } else if self.super_word.loans.len() == 1 {
+            let mut vec = Vec::new();
+            for (_, loan) in &self.super_word.loans {
+                let ncw = CandidateWord {
+                    score: self.score(loan),
+                    word: loan.clone(),
+                };
+                vec.push(ncw);
+            }
+            vec
         } else {
             let mut vec = Vec::new();
             let cps = self.cadidate_phonemes(n);
@@ -332,7 +341,8 @@ impl CandidateWords<'_> {
                     for j in 0..=word.len() - i {
                         let subword = &word[j..j + i];
                         if loanword.contains(subword) {
-                            score += i as f64 * self.super_languages.languages[language] / self.weight_sum
+                            score += i as f64 * self.super_languages.languages[language]
+                                / self.weight_sum
                                 * (if i == 1 { 0.001 } else { 1.0 });
                             break 'search;
                         }
@@ -351,24 +361,29 @@ pub fn main() {
     let reader2 = BufReader::new(file2);
     let super_languages: SuperLanguages = serde_json::from_reader(reader1).unwrap();
     let super_words: SuperWords = serde_json::from_reader(reader2).unwrap();
+    println!("super_words.words.len() = {}", super_words.words.len());
     for super_word in super_words.words {
-        let mut a = CandidateWords {
+        let mut candidate_words = CandidateWords {
             super_languages: &super_languages,
             super_word: super_word,
             words: Vec::new(),
             limit: 100000,
             weight_sum: 0.0,
         };
-        a.generate();
+        println!(
+            "\nGenerating a word meaning '{}'...",
+            candidate_words.super_word.meaning
+        );
+        candidate_words.generate();
         {
-            let best_word = &a.words[0];
+            let best_word = &candidate_words.words[0];
             let mut output = format!(
                 "# {}\n\n## Meaning\n\n{}",
-                best_word.word, a.super_word.meaning
+                best_word.word, candidate_words.super_word.meaning
             );
             let candidates_info = {
                 let mut s = "|Word|Score|\n|:-:|:-:|\n".to_string();
-                let b = a.words.iter().take(10);
+                let b = candidate_words.words.iter().take(10);
                 for c in b {
                     println!("{:?}", c);
                     s.push_str(&format!("|{}|{:.6}|\n", c.word, c.score));
@@ -378,22 +393,26 @@ pub fn main() {
             let langs_info = {
                 let mut s = "|ISO 639-1|Weight|Regular weight|Origin word|Loanword|\n|:-:|:-:|:-:|:-:|:-:|\n"
                     .to_string();
-                for (language, origin) in a.super_word.origins {
+                for (language, origin) in candidate_words.super_word.origins {
                     s.push_str(&format!(
                         "|{}|{}|{:.4}|{}|{}|\n",
                         language,
-                        a.super_languages.languages[&language],
-                        a.super_languages.languages[&language] / a.weight_sum,
+                        candidate_words.super_languages.languages[&language],
+                        candidate_words.super_languages.languages[&language]
+                            / candidate_words.weight_sum,
                         origin,
-                        a.super_word.loans[&language]
+                        candidate_words.super_word.loans[&language]
                     ));
                 }
                 s
             };
             output.push_str(&format!(
                 "\n\n## Candidates\n\n{}\n## Origins\n\nWeight sum: {}\n{}",
-                candidates_info, a.weight_sum, langs_info
+                candidates_info, candidate_words.weight_sum, langs_info
             ));
+            if let Some(note) = candidate_words.super_word.note {
+                output.push_str(&format!("\n## Note\n\n{}\n", &note));
+            }
             let mut f = fs::File::create(format!("./export/{}.md", best_word.word)).unwrap();
             f.write_all(output.as_bytes()).unwrap();
         }
