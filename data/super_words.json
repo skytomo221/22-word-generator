@@ -9,7 +9,7 @@
                 "es": "lengwa",
                 "hi": "baca",
                 "bn": "baca",
-                "pt": "vitiidoic",
+                "pt": "ligwa",
                 "ru": "yizik",
                 "fr": "lagaj",
                 "ar": "lisan",
@@ -26,6 +26,26 @@
                 "lo": "pasa"
             },
             "origins": {
+                "zh": "语言",
+                "en": "language",
+                "es": "lengua",
+                "hi": "भाषा",
+                "bn": "ভাষা",
+                "pt": "língua",
+                "ru": "язык",
+                "fr": "langue",
+                "ar": "لغة",
+                "ja": "言語",
+                "id": "bahasa",
+                "ur": "زبان",
+                "de": "Sprache",
+                "te": "భాష",
+                "tr": "dil",
+                "ko": "언어",
+                "vi": "ngôn ngữ",
+                "jv": "basa",
+                "sw": "lugha",
+                "lo": "ภาษา"
             }
         },
         {
@@ -54,6 +74,40 @@
                 "lo": "pasa"
             },
             "origins": {
+                "zh": "等",
+                "en": "equal",
+                "es": "igual",
+                "hi": "तुल्य",
+                "bn": "সমান",
+                "pt": "igual",
+                "ru": "ра́вный",
+                "fr": "égal",
+                "ar": "مُسَاوٍ‎",
+                "ja": "等しい",
+                "id": "sama",
+                "ur": "برابر",
+                "de": "gleich",
+                "te": "సమానం",
+                "tr": "eşit",
+                "ko": "같은",
+                "vi": "công bằng",
+                "jv": "basa",
+                "sw": "sawa",
+                "lo": "เท่ากัน"
+            }
+        },
+        {
+            "id": 3,
+            "meaning": "Belgium",
+            "loans": {
+                "fr-nl": "belgiya",
+                "fr-br": "beljik",
+                "fr-de": "belgian"
+            },
+            "origins": {
+                "fr-nl": "België",
+                "fr-br": "Belgique",
+                "fr-de": "Belgien"
             }
         }
     ]
