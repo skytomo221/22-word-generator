@@ -361,6 +361,7 @@ pub fn main() {
     let reader2 = BufReader::new(file2);
     let super_languages: SuperLanguages = serde_json::from_reader(reader1).unwrap();
     let super_words: SuperWords = serde_json::from_reader(reader2).unwrap();
+    let mut generated = BTreeMap::new();
     println!("super_words.words.len() = {}", super_words.words.len());
     for super_word in super_words.words {
         let mut candidate_words = CandidateWords {
@@ -413,7 +414,22 @@ pub fn main() {
             if let Some(note) = candidate_words.super_word.note {
                 output.push_str(&format!("\n## Note\n\n{}\n", &note));
             }
-            let mut f = fs::File::create(format!("./export/{}.md", best_word.word)).unwrap();
+            let mut f = fs::File::create(format!("./export/dic/{}.md", best_word.word)).unwrap();
+            f.write_all(output.as_bytes()).unwrap();
+            generated.insert(
+                best_word.word.clone(),
+                candidate_words.super_word.meaning.clone(),
+            );
+        }
+        {
+            let mut f = fs::File::create("./export/word-list.md").unwrap();
+            let output = {
+                let mut s = "# Word List\n\n|Spell|Meaning|\n|:-:|:-:|\n".to_string();
+                for x in &generated {
+                    s.push_str(&format!("|[{0}](./dic/{0}.md)|{1}|\n", x.0, x.1));
+                }
+                s
+            };
             f.write_all(output.as_bytes()).unwrap();
         }
     }
