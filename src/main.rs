@@ -89,6 +89,7 @@ pub trait StringExt {
     fn is_match_w208(&self) -> bool;
     fn is_match_w209(&self) -> bool;
     fn is_match_w210(&self) -> bool;
+    fn is_match_w211(&self) -> bool;
 }
 
 impl StringExt for String {
@@ -172,6 +173,15 @@ impl StringExt for String {
             (Some('d'), Some('j')) => true,
             (Some('d'), Some(_)) => false,
             (Some(a), Some(b)) => !(a.is_consonant() && b.is_consonant()),
+            _ => true,
+        }
+    }
+
+    fn is_match_w211(&self) -> bool {
+        match (self.rev_nth(2), self.rev_nth(1), self.rev_nth(0)) {
+            (Some(a), Some(b), Some(c)) => {
+                !(a.is_vowel() && b.is_vowel() && c.is_vowel())
+            }
             _ => true,
         }
     }
@@ -288,6 +298,7 @@ impl CandidateWords<'_> {
                         && ncww.is_match_w205()
                         && ncww.is_match_w206()
                         && ncww.is_match_w207()
+                        && ncww.is_match_w211()
                         && ((n == 0 && ncww.is_match_w208() && ncww.is_match_w210())
                             || (n == len - 1 && ncww.is_match_w209())
                             || (n != 0 && n != len - 1))

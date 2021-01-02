@@ -99,4 +99,11 @@ mod tests {
         assert!("aa".to_string().is_match_w210());
         assert!("".to_string().is_match_w210());
     }
+
+    #[test]
+    fn test_w211() {
+        assert!("pppp".to_string().is_match_w211());
+        assert!(!"kaaa".to_string().is_match_w211());
+        assert!("".to_string().is_match_w211());
+    }
 }

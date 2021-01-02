@@ -1,4 +1,4 @@
-# ventiais
+# baintiat
 
 ## Meaning
 
@@ -8,16 +8,16 @@
 
 |Word|Score|
 |:-:|:-:|
-|ventiais|2.287855|
-|siaintit|2.277140|
 |baintiat|2.267992|
-|ntitiais|2.264162|
 |bacintit|2.261660|
-|nticiais|2.256234|
-|baiantit|2.246338|
-|sintiais|2.233503|
-|rentiais|2.232473|
-|niaintit|2.227085|
+|ntiabais|2.221962|
+|baintiay|2.198241|
+|ntiavais|2.187439|
+|vacintis|2.184528|
+|baintiab|2.182303|
+|baintiac|2.182303|
+|baintiad|2.182303|
+|baintiah|2.182303|
 
 ## Origins
 
