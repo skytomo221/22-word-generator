@@ -153,7 +153,7 @@ impl StringExt for String {
 
     fn is_match_w208(&self) -> bool {
         match self.nth(0) {
-            Some(a) => a.is_consonant(),
+            Some(a) => a.is_consonant() && (a != 'y'),
             _ => true,
         }
     }
