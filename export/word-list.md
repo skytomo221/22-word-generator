@@ -15,6 +15,7 @@
 |[barat](./dic/barat.md)|India|
 |[belgiak](./dic/belgiak.md)|Belgium|
 |[ckipar](./dic/ckipar.md)|Albania|
+|[dan](./dic/dan.md)|to, end|
 |[dek](./dic/dek.md)|10|
 |[des](./dic/des.md)|0.1|
 |[dewal](./dic/dewal.md)|equal|
@@ -29,9 +30,13 @@
 |[estaraix](./dic/estaraix.md)|Austria|
 |[eswatin](./dic/eswatin.md)|Eswatini|
 |[femt](./dic/femt.md)|10⁻¹⁵|
+|[fron](./dic/fron.md)|from, start|
+|[gabon](./dic/gabon.md)|Gabon|
 |[gaian](./dic/gaian.md)|Guyana|
+|[gambir](./dic/gambir.md)|Gambia|
 |[gan](./dic/gan.md)|Ghana|
 |[gig](./dic/gig.md)|10⁹|
+|[giney](./dic/giney.md)|Guinea|
 |[hanguk](./dic/hanguk.md)|Korea|
 |[hayastan](./dic/hayastan.md)|Armenia|
 |[heks](./dic/heks.md)|6|
@@ -45,6 +50,8 @@
 |[italian](./dic/italian.md)|Italy|
 |[itiop](./dic/itiop.md)|Ethiopia|
 |[kabuverd](./dic/kabuverd.md)|Cape Verde|
+|[kamerun](./dic/kamerun.md)|Cameroon|
+|[kampuk](./dic/kampuk.md)|Cambodia|
 |[kanad](./dic/kanad.md)|Canada|
 |[katar](./dic/katar.md)|Qatar|
 |[kazakstan](./dic/kazakstan.md)|Kazakhstan|
@@ -76,6 +83,7 @@
 |[ronn](./dic/ronn.md)|10²⁷|
 |[ront](./dic/ront.md)|10⁻²⁷|
 |[sent](./dic/sent.md)|0.01|
+|[severenmakedoniy](./dic/severenmakedoniy.md)|North Macedonia|
 |[ter](./dic/ter.md)|10¹²|
 |[tetr](./dic/tetr.md)|4|
 |[tri](./dic/tri.md)|3|

@@ -1065,6 +1065,179 @@
                 "w000": ""
             },
             "note": "W601"
+        },
+        {
+            "id": 90,
+            "meaning": "Gabon",
+            "loans": {
+                "w000": "gabon"
+            },
+            "origins": {
+                "w000": ""
+            },
+            "note": "W601"
+        },
+        {
+            "id": 91,
+            "meaning": "Cameroon",
+            "loans": {
+                "w000": "kamerun"
+            },
+            "origins": {
+                "w000": ""
+            },
+            "note": "W601"
+        },
+        {
+            "id": 92,
+            "meaning": "Gambia",
+            "loans": {
+                "w000": "gambir"
+            },
+            "origins": {
+                "w000": ""
+            },
+            "note": "See WRFC 2"
+        },
+        {
+            "id": 93,
+            "meaning": "Cambodia",
+            "loans": {
+                "w000": "kampuk"
+            },
+            "origins": {
+                "w000": ""
+            },
+            "note": "See WRFC 2"
+        },
+        {
+            "id": 93,
+            "meaning": "Cambodia",
+            "loans": {
+                "w000": "kampuk"
+            },
+            "origins": {
+                "w000": ""
+            },
+            "note": "See WRFC 2"
+        },
+        {
+            "id": 94,
+            "meaning": "North Macedonia",
+            "loans": {
+                "w000": "severenmakedoniy"
+            },
+            "origins": {
+                "w000": ""
+            },
+            "note": "See WRFC 2"
+        },
+        {
+            "id": 95,
+            "meaning": "Guinea",
+            "loans": {
+                "w000": "giney"
+            },
+            "origins": {
+                "w000": ""
+            },
+            "note": "See WRFC 2"
+        },
+        {
+            "id": 96,
+            "meaning": "from, start",
+            "loans": {
+                "zh": "tson",
+                "en": "from",
+                "es": "de",
+                "hi": "se",
+                "bn": "obodi",
+                "pt": "de",
+                "ru": "ot",
+                "fr": "de",
+                "ar": "min",
+                "ja": "kara",
+                "id": "dari",
+                "ur": "se",
+                "de": "fon",
+                "te": "nundi",
+                "tr": "den",
+                "ko": "esa",
+                "vi": "ti",
+                "jv": "saka",
+                "sw": "toka",
+                "lo": "tcak"
+            },
+            "origins": {
+                "zh": "从",
+                "en": "from",
+                "es": "de",
+                "hi": "से",
+                "bn": "অবধি",
+                "pt": "de",
+                "ru": "из",
+                "fr": "de",
+                "ar": "مِن‎",
+                "ja": "から",
+                "id": "dari",
+                "ur": "سے",
+                "de": "von",
+                "te": "నుండి",
+                "tr": "den",
+                "ko": "에서",
+                "vi": "từ",
+                "jv": "saka",
+                "sw": "toka",
+                "lo": "จาก"
+            }
+        },
+        {
+            "id": 97,
+            "meaning": "to, end",
+            "loans": {
+                "zh": "dau",
+                "en": "tu",
+                "es": "a",
+                "hi": "ko",
+                "bn": "",
+                "pt": "a",
+                "ru": "na",
+                "fr": "a",
+                "ar": "ila",
+                "ja": "e",
+                "id": "ke",
+                "ur": "du",
+                "de": "tsu",
+                "te": "ki",
+                "tr": "e",
+                "ko": "uro",
+                "vi": "den",
+                "jv": "menyan",
+                "sw": "kwa",
+                "lo": "yan"
+            },
+            "origins": {
+                "zh": "到",
+                "en": "to",
+                "es": "a",
+                "hi": "को",
+                "bn": "অবধি",
+                "pt": "a",
+                "ru": "на",
+                "fr": "à",
+                "ar": "إِلَى",
+                "ja": "へ",
+                "id": "ke",
+                "ur": "کو",
+                "de": "zu",
+                "te": "కి",
+                "tr": "e",
+                "ko": "으로",
+                "vi": "đến",
+                "jv": "menyang",
+                "sw": "kwa",
+                "lo": "ยัง"
+            }
         }
     ]
 }
