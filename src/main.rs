@@ -168,7 +168,7 @@ impl CandidateWords<'_> {
             .sum()
     }
 
-    fn cadidate_length(&self) -> i32 {
+    fn candidate_length(&self) -> i32 {
         let mut sum = 0.0;
         for (language, loan) in &self.super_word.loans {
             sum += loan.len() as f64 * self.super_languages.languages[language] / self.weight_sum;
@@ -182,7 +182,7 @@ impl CandidateWords<'_> {
     }
 
     fn cadidate_phonemes(&self, n: i32) -> BTreeSet<char> {
-        let c_len = self.cadidate_length();
+        let c_len = self.candidate_length();
         let mut set = BTreeSet::new();
         for (_, loan) in &self.super_word.loans {
             let len = loan.len() as i32;
@@ -213,7 +213,7 @@ impl CandidateWords<'_> {
             score: 0.0,
             word: "".to_string(),
         }];
-        self.words = self.generate_rec(0, self.cadidate_length(), vec);
+        self.words = self.generate_rec(0, self.candidate_length(), vec);
     }
 
     fn generate_rec(&self, n: i32, len: i32, last_vec: Vec<CandidateWord>) -> Vec<CandidateWord> {
