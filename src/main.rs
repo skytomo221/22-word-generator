@@ -173,7 +173,12 @@ impl CandidateWords<'_> {
         for (language, loan) in &self.super_word.loans {
             sum += loan.len() as f64 * self.super_languages.languages[language] / self.weight_sum;
         }
-        sum.ceil() as i32
+        let sum = sum.ceil() as i32;
+        if sum % 2 == 0 {
+            sum + 1
+        } else {
+            sum
+        }
     }
 
     fn cadidate_phonemes(&self, n: i32) -> BTreeSet<char> {
