@@ -2,12 +2,36 @@
     "words": [
         {
             "id": 0,
-            "meaning": "wentiay",
+            "meaning": "language name",
             "loans": {
-                "w000": "wentiay"
+                "zh": "acia",
+                "en": "twentitu",
+                "es": "beintizos",
+                "hi": "bais",
+                "bn": "baic",
+                "pt": "vitiidoic",
+                "ru": "dvatsidydva",
+                "fr": "vetdo",
+                "ar": "isnanwaicrun",
+                "ja": "nijuni",
+                "id": "duapuluhdua",
+                "ur": "bais",
+                "de": "tsvaiunttsvantsixi"
             },
             "origins": {
-                "w000": "wentiay"
+                "zh": "二十二",
+                "en": "twenty-two",
+                "es": "veintidós",
+                "hi": "बाईस",
+                "bn": "বাইশ",
+                "pt": "vinte e dois",
+                "ru": "двадцать два",
+                "fr": "vingt-deux",
+                "ar": "اثنان وعشرون",
+                "ja": "二十二 にじゅうに",
+                "id": "dua puluh dua",
+                "ur": "بائیس",
+                "de": "zweiundzwanzig"
             }
         },
         {
@@ -26,14 +50,7 @@
                 "ja": "gengo",
                 "id": "bahasa",
                 "ur": "zuban",
-                "de": "cparaxa",
-                "te": "baca",
-                "tr": "dil",
-                "ko": "ana",
-                "vi": "nonni",
-                "jv": "basa",
-                "sw": "luga",
-                "lo": "pasa"
+                "de": "cparaxa"
             },
             "origins": {
                 "zh": "语言",
@@ -48,1196 +65,121 @@
                 "ja": "言語",
                 "id": "bahasa",
                 "ur": "زبان",
-                "de": "Sprache",
-                "te": "భాష",
-                "tr": "dil",
-                "ko": "언어",
-                "vi": "ngôn ngữ",
-                "jv": "basa",
-                "sw": "lugha",
-                "lo": "ภาษา"
+                "de": "Sprache"
             }
         },
         {
-            "id": 2,
-            "meaning": "equal",
+            "id": 121,
+            "meaning": "cat",
             "loans": {
-                "zh": "den",
-                "en": "ikwal",
-                "es": "igwal",
-                "hi": "tuli",
-                "bn": "xman",
-                "pt": "igwal",
-                "ru": "ravniy",
-                "fr": "egal",
-                "ar": "musawin",
-                "ja": "hitoshii",
-                "id": "sama",
-                "ur": "barabar",
-                "de": "glaic",
-                "te": "samanam",
-                "tr": "ecit",
-                "ko": "katun",
-                "vi": "kawnmban",
-                "jv": "basa",
-                "sw": "sawa",
-                "lo": "pasa"
+                "zh": "mao",
+                "en": "kat",
+                "es": "gato",
+                "hi": "bili",
+                "bn": "biral",
+                "pt": "gatu",
+                "ru": "kocka",
+                "fr": "ca",
+                "ar": "kit",
+                "ja": "neko",
+                "id": "kutcin",
+                "ur": "bili",
+                "de": "heiskat"
             },
             "origins": {
-                "zh": "等",
-                "en": "equal",
-                "es": "igual",
-                "hi": "तुल्य",
-                "bn": "সমান",
-                "pt": "igual",
-                "ru": "ра́вный",
-                "fr": "égal",
-                "ar": "مُسَاوٍ‎",
-                "ja": "等しい",
-                "id": "sama",
-                "ur": "برابر",
-                "de": "gleich",
-                "te": "సమానం",
-                "tr": "eşit",
-                "ko": "같은",
-                "vi": "công bằng",
-                "jv": "basa",
-                "sw": "sawa",
-                "lo": "เท่ากัน"
+                "zh": "貓",
+                "en": "cat",
+                "es": "gato",
+                "hi": "बिल्ली",
+                "bn": "বিড়াল",
+                "pt": "gato",
+                "ru": "кошка",
+                "fr": "chat",
+                "ar": "قِطّ",
+                "ja": "ネコ",
+                "id": "kucing",
+                "ur": "بلّی",
+                "de": "huiskat"
             }
         },
         {
-            "id": 3,
-            "meaning": "Japan",
+            "id": 122,
+            "meaning": "apple",
             "loans": {
-                "w000": "nipon"
+                "zh": "pingwo",
+                "en": "apl",
+                "es": "manzana",
+                "hi": "seb",
+                "bn": "apel",
+                "pt": "masa",
+                "ru": "yabloko",
+                "fr": "pom",
+                "ar": "tufaha",
+                "ja": "ringo",
+                "id": "apel",
+                "ur": "seb",
+                "de": "katse"
             },
             "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 4,
-            "meaning": "Esperanto",
-            "loans": {
-                "w000": "esperant"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 5,
-            "meaning": "Lojban",
-            "loans": {
-                "w000": "lojban"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 6,
-            "meaning": "yes",
-            "loans": {
-                "w000": "y"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "From 'jes' in Esperanto and '.ie' in Lojban (W602)"
-        },
-        {
-            "id": 7,
-            "meaning": "no",
-            "loans": {
-                "w000": "n"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "From 'ne' in Esperanto (W602)"
-        },
-        {
-            "id": 8,
-            "meaning": "Algeria",
-            "loans": {
-                "w000": "aldjazair"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 9,
-            "meaning": "Ireland",
-            "loans": {
-                "w000": "erain"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 10,
-            "meaning": "Korea",
-            "loans": {
-                "w000": "hanguk"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 11,
-            "meaning": "Iceland",
-            "loans": {
-                "w000": "istlant"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 12,
-            "meaning": "Canada",
-            "loans": {
-                "w000": "kanad"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 13,
-            "meaning": "Mexico",
-            "loans": {
-                "w000": "meksik"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 14,
-            "meaning": "Azerbaijan",
-            "loans": {
-                "w000": "azerbadjan"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 15,
-            "meaning": "Belgium",
-            "loans": {
-                "fr-nl": "belgiya",
-                "fr-br": "beljik",
-                "fr-de": "belgian"
-            },
-            "origins": {
-                "fr-nl": "België",
-                "fr-br": "Belgique",
-                "fr-de": "Belgien"
+                "zh": "蘋果",
+                "en": "apple",
+                "es": "manzana",
+                "hi": "सेब",
+                "bn": "আপেল",
+                "pt": "maçã",
+                "ru": "яблоко",
+                "fr": "pomme",
+                "ar": "تُفَّاحَة",
+                "ja": "リンゴ",
+                "id": "apel",
+                "ur": "سیب",
+                "de": "Katze"
             }
         },
         {
-            "id": 16,
-            "meaning": "0",
-            "loans": {
-                "w000": "nul"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W602"
-        },
-        {
-            "id": 17,
-            "meaning": "1",
-            "loans": {
-                "w000": "un"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W602"
-        },
-        {
-            "id": 18,
-            "meaning": "2",
-            "loans": {
-                "w000": "du"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W602"
-        },
-        {
-            "id": 19,
-            "meaning": "3",
-            "loans": {
-                "w000": "tri"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W602"
-        },
-        {
-            "id": 20,
-            "meaning": "4",
-            "loans": {
-                "w000": "tetr"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W602"
-        },
-        {
-            "id": 21,
-            "meaning": "5",
-            "loans": {
-                "w000": "pent"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W602"
-        },
-        {
-            "id": 22,
-            "meaning": "6",
-            "loans": {
-                "w000": "heks"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W602"
-        },
-        {
-            "id": 23,
-            "meaning": "7",
-            "loans": {
-                "w000": "hept"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W602"
-        },
-        {
-            "id": 24,
-            "meaning": "8",
-            "loans": {
-                "w000": "okt"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W602"
-        },
-        {
-            "id": 25,
-            "meaning": "9",
-            "loans": {
-                "w000": "non"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W602"
-        },
-        {
-            "id": 26,
-            "meaning": "10",
-            "loans": {
-                "w000": "dek"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W602"
-        },
-        {
-            "id": 27,
-            "meaning": "100",
-            "loans": {
-                "w000": "hekt"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W602"
-        },
-        {
-            "id": 28,
-            "meaning": "10³",
-            "loans": {
-                "w000": "kil"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W602"
-        },
-        {
-            "id": 29,
-            "meaning": "10⁶",
-            "loans": {
-                "w000": "meg"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W602"
-        },
-        {
-            "id": 30,
-            "meaning": "10⁹",
-            "loans": {
-                "w000": "gig"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W602"
-        },
-        {
-            "id": 31,
-            "meaning": "10¹²",
-            "loans": {
-                "w000": "ter"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W602"
-        },
-        {
-            "id": 32,
-            "meaning": "10¹⁵",
-            "loans": {
-                "w000": "pet"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W602"
-        },
-        {
-            "id": 33,
-            "meaning": "10¹⁸",
-            "loans": {
-                "w000": "eks"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W602"
-        },
-        {
-            "id": 34,
-            "meaning": "10²¹",
-            "loans": {
-                "w000": "zet"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W602"
-        },
-        {
-            "id": 35,
-            "meaning": "10²⁴",
-            "loans": {
-                "w000": "yot"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W602"
-        },
-        {
-            "id": 36,
-            "meaning": "10²⁷",
-            "loans": {
-                "w000": "ronn"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W602"
-        },
-        {
-            "id": 37,
-            "meaning": "10³⁰",
-            "loans": {
-                "w000": "kuek"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W602"
-        },
-        {
-            "id": 38,
-            "meaning": "0.1",
-            "loans": {
-                "w000": "des"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W602"
-        },
-        {
-            "id": 39,
-            "meaning": "0.01",
-            "loans": {
-                "w000": "sent"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W602"
-        },
-        {
-            "id": 40,
-            "meaning": "10⁻³",
-            "loans": {
-                "w000": "mil"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W602"
-        },
-        {
-            "id": 41,
-            "meaning": "10⁻⁶",
-            "loans": {
-                "w000": "mikr"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W602"
-        },
-        {
-            "id": 42,
-            "meaning": "10⁻⁹",
-            "loans": {
-                "w000": "nan"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W602"
-        },
-        {
-            "id": 43,
-            "meaning": "10⁻¹²",
-            "loans": {
-                "w000": "pik"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W602"
-        },
-        {
-            "id": 44,
-            "meaning": "10⁻¹⁵",
-            "loans": {
-                "w000": "femt"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W602"
-        },
-        {
-            "id": 45,
-            "meaning": "10⁻¹⁸",
-            "loans": {
-                "w000": "at"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W602"
-        },
-        {
-            "id": 46,
-            "meaning": "10⁻²¹",
-            "loans": {
-                "w000": "zept"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W602"
-        },
-        {
-            "id": 47,
-            "meaning": "10⁻²⁴",
-            "loans": {
-                "w000": "yokt"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W602"
-        },
-        {
-            "id": 48,
-            "meaning": "10⁻²⁷",
-            "loans": {
-                "w000": "ront"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W602"
-        },
-        {
-            "id": 49,
-            "meaning": "10⁻³⁰",
-            "loans": {
-                "w000": "kuekt"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W602"
-        },
-        {
-            "id": 50,
-            "meaning": "number article",
-            "loans": {
-                "w000": "li"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W602"
-        },
-        {
-            "id": 51,
-            "meaning": "decimal point",
-            "loans": {
-                "w000": "pi"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W602"
-        },
-        {
-            "id": 52,
-            "meaning": "zero adjective",
-            "loans": {
-                "w000": "a"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W603"
-        },
-        {
-            "id": 53,
-            "meaning": "zero adverb",
-            "loans": {
-                "w000": "e"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W603"
-        },
-        {
-            "id": 54,
-            "meaning": "zero verb",
-            "loans": {
-                "w000": "i"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W603"
-        },
-        {
-            "id": 55,
-            "meaning": "zero noun",
-            "loans": {
-                "w000": "o"
-            },
-            "origins": {
-                "w000": "W603"
-            },
-            "note": ""
-        },
-        {
-            "id": 56,
-            "meaning": "zero preposition",
-            "loans": {
-                "w000": "u"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W603"
-        },
-        {
-            "id": 57,
-            "meaning": "Argentina",
-            "loans": {
-                "w000": "arxentin"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 58,
-            "meaning": "Albania",
-            "loans": {
-                "w000": "ckipar"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 59,
-            "meaning": "Armenia",
-            "loans": {
-                "w000": "hayastan"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 60,
-            "meaning": "Angola",
-            "loans": {
-                "w000": "angol"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 61,
-            "meaning": "Antigua and Barbuda",
-            "loans": {
-                "w000": "antigabarbud"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 62,
-            "meaning": "Andorra",
-            "loans": {
-                "w000": "andor"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 63,
-            "meaning": "Yemen",
-            "loans": {
-                "w000": "yaman"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 64,
-            "meaning": "Israel",
-            "loans": {
-                "w000": "yisrael"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 65,
-            "meaning": "Italy",
-            "loans": {
-                "w000": "italian"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 66,
-            "meaning": "Iraq",
-            "loans": {
-                "w000": "irak"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 67,
-            "meaning": "Iran",
-            "loans": {
-                "w000": "iran"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 68,
-            "meaning": "India",
-            "loans": {
-                "w000": "barat"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 69,
-            "meaning": "Indonesia",
-            "loans": {
-                "w000": "indonesi"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 70,
-            "meaning": "Uganda",
-            "loans": {
-                "w000": "ugand"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 71,
-            "meaning": "Ukraine",
-            "loans": {
-                "w000": "ukrain"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 72,
-            "meaning": "Uzbekistan",
-            "loans": {
-                "w000": "ozbekistan"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 73,
-            "meaning": "Uruguay",
-            "loans": {
-                "w000": "urugwa"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 74,
-            "meaning": "Ecuador",
-            "loans": {
-                "w000": "ekwazor"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 75,
-            "meaning": "Egypt",
-            "loans": {
-                "w000": "misr"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 76,
-            "meaning": "Estonia",
-            "loans": {
-                "w000": "est"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 77,
-            "meaning": "Eswatini",
-            "loans": {
-                "w000": "eswatin"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 78,
-            "meaning": "Ethiopia",
-            "loans": {
-                "w000": "itiop"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 79,
-            "meaning": "Monaco",
-            "loans": {
-                "w000": "monak"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 80,
-            "meaning": "El salvador",
-            "loans": {
-                "w000": "elsalbazor"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 81,
-            "meaning": "Australia",
-            "loans": {
-                "w000": "astreil"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 82,
-            "meaning": "Austria",
-            "loans": {
-                "w000": "estaraix"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 83,
-            "meaning": "Oman",
-            "loans": {
-                "w000": "oman"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 84,
-            "meaning": "Netherlands",
-            "loans": {
-                "w000": "nedalant"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 85,
-            "meaning": "Ghana",
-            "loans": {
-                "w000": "gan"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 86,
-            "meaning": "Cape Verde",
-            "loans": {
-                "w000": "kabuverd"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 87,
-            "meaning": "Guyana",
-            "loans": {
-                "w000": "gaian"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 88,
-            "meaning": "Kazakhstan",
-            "loans": {
-                "w000": "kazakstan"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 89,
-            "meaning": "Qatar",
-            "loans": {
-                "w000": "katar"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 90,
-            "meaning": "Gabon",
-            "loans": {
-                "w000": "gabon"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 91,
-            "meaning": "Cameroon",
-            "loans": {
-                "w000": "kamerun"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "W601"
-        },
-        {
-            "id": 92,
-            "meaning": "Gambia",
-            "loans": {
-                "w000": "gambir"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "See WRFC 2"
-        },
-        {
-            "id": 93,
-            "meaning": "Cambodia",
-            "loans": {
-                "w000": "kampuk"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "See WRFC 2"
-        },
-        {
-            "id": 93,
-            "meaning": "Cambodia",
-            "loans": {
-                "w000": "kampuk"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "See WRFC 2"
-        },
-        {
-            "id": 94,
-            "meaning": "North Macedonia",
-            "loans": {
-                "w000": "severenmakedoniy"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "See WRFC 2"
-        },
-        {
-            "id": 95,
-            "meaning": "Guinea",
-            "loans": {
-                "w000": "giney"
-            },
-            "origins": {
-                "w000": ""
-            },
-            "note": "See WRFC 2"
-        },
-        {
-            "id": 96,
-            "meaning": "from, start",
-            "loans": {
-                "zh": "tson",
-                "en": "from",
-                "es": "de",
-                "hi": "se",
-                "bn": "obodi",
-                "pt": "de",
-                "ru": "ot",
-                "fr": "de",
-                "ar": "min",
-                "ja": "kara",
-                "id": "dari",
-                "ur": "se",
-                "de": "fon",
-                "te": "nundi",
-                "tr": "den",
-                "ko": "esa",
-                "vi": "ti",
-                "jv": "saka",
-                "sw": "toka",
-                "lo": "tcak"
-            },
-            "origins": {
-                "zh": "从",
-                "en": "from",
-                "es": "de",
-                "hi": "से",
-                "bn": "অবধি",
-                "pt": "de",
-                "ru": "из",
-                "fr": "de",
-                "ar": "مِن‎",
-                "ja": "から",
-                "id": "dari",
-                "ur": "سے",
-                "de": "von",
-                "te": "నుండి",
-                "tr": "den",
-                "ko": "에서",
-                "vi": "từ",
-                "jv": "saka",
-                "sw": "toka",
-                "lo": "จาก"
+            "id": 123,
+            "meaning": "red",
+            "loans": {
+                "zh": "hunse",
+                "en": "red",
+                "es": "roxo",
+                "hi": "lal",
+                "bn": "lal",
+                "pt": "vermelyo",
+                "ru": "krasniy",
+                "fr": "ruj",
+                "ar": "humra",
+                "ja": "aka",
+                "id": "merah",
+                "ur": "surx",
+                "de": "rot"
+            },
+            "origins": {
+                "zh": "紅色",
+                "en": "red",
+                "es": "rojo",
+                "hi": "लाल",
+                "bn": "লাল",
+                "pt": "vermelho",
+                "ru": "красный",
+                "fr": "rouge",
+                "ar": "حُمْرَة",
+                "ja": "赤",
+                "id": "merah",
+                "ur": "سرخ",
+                "de": "rot"
             }
         },
         {
-            "id": 97,
-            "meaning": "to, end",
+            "id": 0,
+            "meaning": "",
             "loans": {
-                "zh": "dau",
-                "en": "tu",
-                "es": "a",
-                "hi": "ko",
-                "bn": "",
-                "pt": "a",
-                "ru": "na",
-                "fr": "a",
-                "ar": "ila",
-                "ja": "e",
-                "id": "ke",
-                "ur": "du",
-                "de": "tsu",
-                "te": "ki",
-                "tr": "e",
-                "ko": "uro",
-                "vi": "den",
-                "jv": "menyan",
-                "sw": "kwa",
-                "lo": "yan"
+                "w000": "nilil"
             },
             "origins": {
-                "zh": "到",
-                "en": "to",
-                "es": "a",
-                "hi": "को",
-                "bn": "অবধি",
-                "pt": "a",
-                "ru": "на",
-                "fr": "à",
-                "ar": "إِلَى",
-                "ja": "へ",
-                "id": "ke",
-                "ur": "کو",
-                "de": "zu",
-                "te": "కి",
-                "tr": "e",
-                "ko": "으로",
-                "vi": "đến",
-                "jv": "menyang",
-                "sw": "kwa",
-                "lo": "ยัง"
-            }
+                "w000": "nil"
+            },
+            "note": "W601"
         }
     ]
 }

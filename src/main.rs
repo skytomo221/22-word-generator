@@ -54,6 +54,8 @@ impl CharExt for char {
             || *self == 'x'
             || *self == 'h'
             || *self == 'l'
+            || *self == 'y'
+            || *self == 'w'
     }
 }
 
@@ -78,8 +80,8 @@ impl StringExt for String {
 
     fn is_match_w212(&self) -> bool {
         match (self.rev_nth(1), self.rev_nth(0)) {
-            (Some('i'), Some(_)) => true,
-            (Some('u'), Some(_)) => true,
+            (Some('y'), Some(_)) => true,
+            (Some('w'), Some(_)) => true,
             (Some(a), Some(b)) => !(a.is_vowel() && b.is_vowel()),
             _ => true,
         }
@@ -108,8 +110,8 @@ impl StringExt for String {
 
     fn is_match_w215(&self) -> bool {
         match (self.rev_nth(2), self.rev_nth(1), self.rev_nth(0)) {
-            (Some('i'), Some('i'), Some('i')) => false,
-            (Some('u'), Some('u'), Some('u')) => false,
+            (Some('i'), Some('y'), Some('i')) => false,
+            (Some('u'), Some('w'), Some('u')) => false,
             _ => true,
         }
     }
@@ -189,15 +191,33 @@ impl CandidateWords<'_> {
             if len < c_len {
                 let start = cmp::max(0, n - (c_len - len)) as usize;
                 let end = cmp::min(len, n + 1) as usize;
-                &loan[start..end].chars().for_each(|c| {
-                    set.insert(c);
-                });
+                &loan[start..end]
+                    .chars()
+                    .filter(|c| {
+                        if n % 2 == 0 {
+                            c.is_consonant() || (c == &'i') || (c == &'u')
+                        } else {
+                            c.is_vowel()
+                        }
+                    })
+                    .for_each(|c| {
+                        set.insert(c);
+                    });
             } else if len > c_len {
                 let start = n as usize;
                 let end = (n + len - c_len + 1) as usize;
-                &loan[start..end].chars().for_each(|c| {
-                    set.insert(c);
-                });
+                &loan[start..end]
+                    .chars()
+                    .filter(|c| {
+                        if n % 2 == 0 {
+                            c.is_consonant() || (c == &'i') || (c == &'u')
+                        } else {
+                            c.is_vowel()
+                        }
+                    })
+                    .for_each(|c| {
+                        set.insert(c);
+                    });
             } else {
                 if let Some(c) = loan.nth(n as usize) {
                     set.insert(c);
@@ -298,7 +318,7 @@ pub fn main() {
             super_languages: &super_languages,
             super_word: super_word,
             words: Vec::new(),
-            limit: 100000,
+            limit: 1000000,
             weight_sum: 0.0,
         };
         println!(
