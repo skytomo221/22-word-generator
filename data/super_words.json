@@ -171,15 +171,140 @@
             }
         },
         {
-            "id": 0,
-            "meaning": "",
+            "id": 124,
+            "meaning": "eat",
             "loans": {
-                "w000": "nilil"
+                "zh": "sik",
+                "en": "it",
+                "es": "komer",
+                "hi": "kana",
+                "bn": "kawa",
+                "pt": "komer",
+                "ru": "yest",
+                "fr": "maje",
+                "ar": "akala",
+                "ja": "aka",
+                "id": "makan",
+                "ur": "kana",
+                "de": "esen"
             },
             "origins": {
-                "w000": "nil"
+                "zh": "食",
+                "en": "eat",
+                "es": "comer",
+                "hi": "खाना",
+                "bn": "খাওয়া",
+                "pt": "comer",
+                "ru": "есть",
+                "fr": "manger",
+                "ar": "أكل",
+                "ja": "赤",
+                "id": "makan",
+                "ur": "کھانا",
+                "de": "essen"
+            }
+        },
+        {
+            "id": 125,
+            "meaning": "like",
+            "loans": {
+                "zh": "cihwan",
+                "en": "laik",
+                "es": "gustar",
+                "hi": "pasandakarana",
+                "bn": "potcondokora",
+                "pt": "gostar",
+                "ru": "nravitsa",
+                "fr": "eme",
+                "ar": "haba",
+                "ja": "suki",
+                "id": "suka",
+                "ur": "pasandkarna",
+                "de": "megen"
             },
-            "note": "W601"
+            "origins": {
+                "zh": "喜歡",
+                "en": "like",
+                "es": "gustar",
+                "hi": "पसंद करना",
+                "bn": "পছন্দ করা",
+                "pt": "gostar",
+                "ru": "нравиться",
+                "fr": "aimer",
+                "ar": "حب",
+                "ja": "好き",
+                "id": "suka",
+                "ur": "پسند کرنا",
+                "de": "mögen"
+            }
+        },
+        {
+            "id": 126,
+            "meaning": "like",
+            "loans": {
+                "zh": "cihwan",
+                "en": "laik",
+                "es": "gustar",
+                "hi": "pasandakarana",
+                "bn": "potcondokora",
+                "pt": "gostar",
+                "ru": "nravitsa",
+                "fr": "eme",
+                "ar": "haba",
+                "ja": "suki",
+                "id": "suka",
+                "ur": "pasandkarna",
+                "de": "megen"
+            },
+            "origins": {
+                "zh": "喜歡",
+                "en": "like",
+                "es": "gustar",
+                "hi": "पसंद करना",
+                "bn": "পছন্দ করা",
+                "pt": "gostar",
+                "ru": "нравиться",
+                "fr": "aimer",
+                "ar": "حب",
+                "ja": "好き",
+                "id": "suka",
+                "ur": "پسند کرنا",
+                "de": "mögen"
+            }
+        },
+        {
+            "id": 127,
+            "meaning": "book",
+            "loans": {
+                "zh": "cu",
+                "en": "buk",
+                "es": "libro",
+                "hi": "pustak",
+                "bn": "boi",
+                "pt": "livru",
+                "ru": "kniga",
+                "fr": "livr",
+                "ar": "kitab",
+                "ja": "hon",
+                "id": "buku",
+                "ur": "kitab",
+                "de": "bux"
+            },
+            "origins": {
+                "zh": "書",
+                "en": "book",
+                "es": "libro",
+                "hi": "पुस्तक",
+                "bn": "বই",
+                "pt": "livro",
+                "ru": "книга",
+                "fr": "livre",
+                "ar": "كتاب",
+                "ja": "本",
+                "id": "buku",
+                "ur": "کِتَاب",
+                "de": "Buch"
+            }
         }
     ]
 }
