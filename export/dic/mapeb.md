@@ -8,16 +8,16 @@ apple
 
 |Word|Score|
 |:-:|:-:|
-|mapeb|1.263847|
-|napeb|1.152495|
+|mapeb|1.311903|
+|napeb|1.200551|
+|mapok|1.121077|
+|mapel|1.114546|
 |pinab|1.098103|
-|mapok|1.073021|
-|mapel|1.066489|
+|sapeb|1.079650|
+|mapom|1.066672|
 |pinah|1.066055|
+|yapeb|1.063755|
 |pineb|1.053115|
-|sapeb|1.031593|
-|mapom|1.018615|
-|yapeb|1.015698|
 
 ## Origins
 
@@ -26,7 +26,7 @@ Weight sum: 4307.360750000001
 |:-:|:-:|:-:|:-:|:-:|
 |ar|137|0.0318|تُفَّاحَة|tufaha|
 |bn|246.9|0.0573|আপেল|apel|
-|de|103.55|0.0240|Katze|katse|
+|de|103.55|0.0240|Apfel|apfel|
 |en|818.9|0.1901|apple|apl|
 |es|500.45|0.1162|manzana|manzana|
 |fr|176.95|0.0411|pomme|pom|
