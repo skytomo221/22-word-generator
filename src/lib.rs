@@ -1,19 +1,70 @@
+pub mod loan;
 pub mod main;
 
 #[cfg(test)]
 mod tests {
-    use crate::main::*;
+    use crate::loan::*;
 
     #[test]
-    fn test_w202_and_w203() {
-        assert!("pa".to_string().is_match_w202_and_w203());
-        assert!("ap".to_string().is_match_w202_and_w203());
-        assert!(!"aa".to_string().is_match_w202_and_w203());
-        assert!(!"pp".to_string().is_match_w202_and_w203());
-        assert!(!"baa".to_string().is_match_w202_and_w203());
-        assert!("a".to_string().is_match_w202_and_w203());
-        assert!("p".to_string().is_match_w202_and_w203());
-        assert!("".to_string().is_match_w202_and_w203());
+    fn test_language_to_latin() {
+        assert_eq!(to_latin("ˈlæŋɡwɪd͡ʒ"), "langwidj");
+        assert_eq!(to_latin("ˈlẽŋ.ɡwa"), "lengwa");
+        assert_eq!(to_latin("bʱɑː.ʂɑː"), "baca");
+        assert_eq!(to_latin("lĩ.ɡwɐ"), "ligwa");
+        assert_eq!(to_latin("(j)ɪˈzɨk"), "yizik");
+        assert_eq!(to_latin("lɑ̃ɡ"), "lag");
+        assert_eq!(to_latin("ɡẽ̞ŋɡo̞"), "gengo");
+        assert_eq!(to_latin("baˈhasa"), "bahasa");
+        assert_eq!(to_latin("zʊ.bɑːn"), "zuban");
+        assert_eq!(to_latin("ˈʃpʁaːxə"), "cpraxə");
+    }
+
+    #[test]
+    fn test_cat_to_latin() {
+        assert_eq!(to_latin("māo"), "mao");
+        assert_eq!(to_latin("kæt"), "kat");
+        assert_eq!(to_latin("ˈɡa.t̪o"), "gato");
+        assert_eq!(to_latin("bɪl̪.l̪iː"), "billi");
+        assert_eq!(to_latin("biṛal"), "biral");
+        assert_eq!(to_latin("ˈɡä.t̪ʊ"), "gatu");
+        assert_eq!(to_latin("ˈkoʂkə"), "kockə");
+        assert_eq!(to_latin("ʃa"), "ca");
+        assert_eq!(to_latin("qiṭṭ"), "kitt");
+        assert_eq!(to_latin("ne̞ko̞"), "neko");
+        assert_eq!(to_latin("kut͡ʃɪŋ"), "kutcin");
+        assert_eq!(to_latin("billī"), "billi");
+        assert_eq!(to_latin("ˈkatsə"), "katsə");
+    }
+
+    #[test]
+    fn test_cat_to_ipa() {
+        assert_eq!(to_latin(&to_ipa("貓", "zh").unwrap()), "mau");
+        assert_eq!(to_latin(&to_ipa("cat", "en").unwrap()), "kat");
+        assert_eq!(to_latin(&to_ipa("gato", "es").unwrap()), "gato");
+        assert_eq!(to_latin(&to_ipa("बिल्ली", "hi").unwrap()), "billi");
+        // assert_eq!(to_latin(&to_ipa("বিড়াল", "bn").unwrap()), "biral");
+        assert_eq!(to_latin(&to_ipa("gato", "pt").unwrap()), "gato");
+        assert_eq!(to_latin(&to_ipa("кошка", "ru").unwrap()), "kockə");
+        // assert_eq!(to_latin(&to_ipa("chat", "fr").unwrap()), "ca");
+        // assert_eq!(to_latin(&to_ipa("قط", "ar").unwrap()), "kitt");
+        assert_eq!(to_latin(&to_ipa("ねこ", "ja").unwrap()), "neko");
+        // assert_eq!(to_latin(&to_ipa("kucing", "id").unwrap()), "kutcin");
+        // assert_eq!(to_latin(&to_ipa("بلّی", "ur").unwrap()), "billi");
+        assert_eq!(to_latin(&to_ipa("katze", "de").unwrap()), "katsə");
+    }
+
+    /*
+    use crate::main::*;
+    #[test]
+    fn test_w212() {
+        assert!("pa".to_string().is_match_w212());
+        assert!("ap".to_string().is_match_w212());
+        assert!(!"aa".to_string().is_match_w212());
+        assert!(!"pp".to_string().is_match_w212());
+        assert!(!"baa".to_string().is_match_w212());
+        assert!("a".to_string().is_match_w212());
+        assert!("p".to_string().is_match_w212());
+        assert!("".to_string().is_match_w212());
     }
 
     #[test]
@@ -106,4 +157,5 @@ mod tests {
         assert!(!"kaaa".to_string().is_match_w211());
         assert!("".to_string().is_match_w211());
     }
+     */
 }
