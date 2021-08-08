@@ -30,7 +30,7 @@ pub fn to_ipa(word: &str, lang: &str) -> Option<String> {
     None
 }
 
-pub fn ipa_to_alphabets() -> HashMap<&'static str, &'static str> {
+fn ipa_to_alphabets() -> HashMap<&'static str, &'static str> {
     let mut alphabets = HashMap::new();
     alphabets.insert("p", "p");
     alphabets.insert("b", "b");

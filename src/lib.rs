@@ -53,6 +53,13 @@ mod tests {
         assert_eq!(to_latin(&to_ipa("katze", "de").unwrap()), "katsə");
     }
 
+    #[test]
+    fn test_ipa() {
+        let lang = "ur";
+        let word = "بلّی";
+        println!("word: {}, IPA: {}", word, to_ipa(word, lang).unwrap());
+    }
+
     /*
     use crate::main::*;
     #[test]

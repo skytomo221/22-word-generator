@@ -1,13 +1,13 @@
 [package]
-name = "wentiay-word-selecter"
-version = "0.1.0"
 authors = ["skytomo <tomo1kawa.fullerene@gmail.com>"]
 edition = "2018"
+name = "bacitit-word-generator"
+version = "0.1.0"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 regex = "1.5.4"
-serde = { version = "1.0", features = ["derive"] }
+serde = {version = "1.0", features = ["derive"]}
 serde_json = "1.0"
 unicode-normalization = "0.1.19"
