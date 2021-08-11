@@ -1,8 +1,8 @@
-pub mod loan;
+pub mod convert;
 
 #[cfg(test)]
 mod tests {
-    use crate::loan::*;
+    use crate::convert::*;
 
     #[test]
     fn test_language_to_latin() {

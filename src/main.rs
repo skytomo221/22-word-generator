@@ -6,10 +6,7 @@ use std::fs::File;
 use std::io::BufReader;
 use std::{cmp, fs, io::Write};
 
-mod loan;
-
-use loan::to_ipa;
-use loan::to_latin;
+mod convert;
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Recipe {
@@ -350,10 +347,10 @@ pub fn main() {
             let mut new_super_word = super_word.clone();
             for origin in &mut new_super_word.origins {
                 if origin.ipa == None {
-                    origin.ipa = Some(to_ipa(&origin.word, &origin.language).unwrap());
-                    origin.loan = Some(to_latin(&origin.ipa.as_ref().unwrap()));
+                    origin.ipa = Some(convert::to_ipa(&origin.word, &origin.language).unwrap());
+                    origin.loan = Some(convert::to_latin(&origin.ipa.as_ref().unwrap()));
                 } else if origin.loan == None {
-                    origin.loan = Some(to_latin(&origin.ipa.as_ref().unwrap()));
+                    origin.loan = Some(convert::to_latin(&origin.ipa.as_ref().unwrap()));
                 }
             }
             new_super_word
