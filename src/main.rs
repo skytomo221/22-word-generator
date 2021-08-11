@@ -6,8 +6,10 @@ use std::fs::File;
 use std::io::BufReader;
 use std::{cmp, fs, io::Write};
 
-use crate::loan::to_ipa;
-use crate::loan::to_latin;
+mod loan;
+
+use loan::to_ipa;
+use loan::to_latin;
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Recipe {
