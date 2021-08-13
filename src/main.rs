@@ -347,10 +347,34 @@ pub fn main() {
             let mut new_super_word = super_word.clone();
             for origin in &mut new_super_word.origins {
                 if origin.ipa == None {
-                    origin.ipa = Some(convert::to_ipa(&origin.word, &origin.language).unwrap());
-                    origin.loan = Some(convert::to_latin(&origin.ipa.as_ref().unwrap()));
+                    match convert::to_ipa(&origin.word, &origin.language) {
+                        Some(ipa) => origin.ipa = Some(ipa),
+                        None => panic!(
+                            "IPAに変換できませんでした。 Word: {} Language: {}",
+                            origin.word, origin.language
+                        ),
+                    }
+                    match Some(convert::to_latin(&origin.ipa.as_ref().unwrap())) {
+                        Some(loan) => origin.loan = Some(loan),
+                        None => panic!(
+                            "借用語に変換できませんでした。 Word: {} Language: {} IPA: {:?}",
+                            origin.word, origin.language, origin.ipa
+                        ),
+                    }
                 } else if origin.loan == None {
-                    origin.loan = Some(convert::to_latin(&origin.ipa.as_ref().unwrap()));
+                    match Some(convert::to_latin(&origin.ipa.as_ref().unwrap())) {
+                        Some(loan) => origin.loan = Some(loan),
+                        None => panic!(
+                            "借用語に変換できませんでした。 Word: {} Language: {} IPA: {:?}",
+                            origin.word, origin.language, origin.ipa
+                        ),
+                    }
+                }
+                if origin.loan.as_ref().unwrap().contains("ə") {
+                    panic!(
+                        "əが含まれています。 Word: {} Language: {} IPA: {:?}, loan {:?}",
+                        origin.word, origin.language, origin.ipa, origin.loan
+                    );
                 }
             }
             new_super_word
