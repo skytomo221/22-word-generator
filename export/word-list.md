@@ -2,11 +2,11 @@
 
 |Spell|Meaning|
 |:-:|:-:|
-|[bacitit](./dic/bacitit.md)|language name|
-|[bayuyan](./dic/bayuyan.md)|language|
+|[baniyen](./dic/baniyen.md)|language|
 |[bimat](./dic/bimat.md)|cat|
-|[lakaran](./dic/lakaran.md)|like|
-|[lased](./dic/lased.md)|red|
-|[licuk](./dic/licuk.md)|book|
+|[cikarab](./dic/cikarab.md)|like|
+|[kamer](./dic/kamer.md)|eat|
+|[libuk](./dic/libuk.md)|book|
 |[mapeb](./dic/mapeb.md)|apple|
-|[sikan](./dic/sikan.md)|eat|
+|[rexun](./dic/rexun.md)|red|
+|[tituhis](./dic/tituhis.md)|language name|

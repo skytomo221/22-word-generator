@@ -8,32 +8,32 @@ cat
 
 |Word|Score|
 |:-:|:-:|
-|bimat|1.643893|
-|makat|1.556001|
-|matil|1.529310|
-|bikat|1.479800|
-|komat|1.400441|
-|katil|1.365216|
-|matol|1.362684|
-|matok|1.362543|
-|maton|1.362543|
-|matot|1.362543|
+|bimat|1.588295|
+|makat|1.556029|
+|matil|1.473712|
+|bikat|1.424202|
+|matol|1.418375|
+|maton|1.418289|
+|matot|1.418261|
+|malat|1.416624|
+|matal|1.416624|
+|komat|1.400469|
 
 ## Origins
 
-Weight sum: 4307.360750000001
+Weight sum: 4307.36075
 |ISO 639-1|Weight|Regular weight|Origin word|Loanword|
 |:-:|:-:|:-:|:-:|:-:|
-|ar|137|0.0318|قِطّ|kit|
-|bn|246.9|0.0573|বিড়াল|biral|
-|de|103.55|0.0240|huiskat|heiskat|
+|zh|1020.85|0.2370|貓|mau|
 |en|818.9|0.1901|cat|kat|
 |es|500.45|0.1162|gato|gato|
-|fr|176.95|0.0411|chat|ca|
-|hi|489.65|0.1137|बिल्ली|bili|
-|id|121.3|0.0282|kucing|kutcin|
-|ja|126.26075|0.0293|ネコ|neko|
-|pt|240|0.0557|gato|gatu|
+|hi|489.65|0.1137|बिल्ली|billi|
+|bn|246.9|0.0573|বিড়াল|biral|
+|pt|240|0.0557|gato|gato|
 |ru|205.75|0.0478|кошка|kocka|
-|ur|119.8|0.0278|بلّی|bili|
-|zh|1020.85|0.2370|貓|mao|
+|fr|176.95|0.0411|chat|ca|
+|ar|137|0.0318|قِطّ|qitt|
+|ja|126.26075|0.0293|ねこ|neko|
+|id|121.3|0.0282|kucing|kuin|
+|ur|119.8|0.0278|بلّی|vidali|
+|de|103.55|0.0240|katze|katse|

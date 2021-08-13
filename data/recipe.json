@@ -172,16 +172,8 @@
                     "word": "भाषा"
                 },
                 {
-                    "language": "hi",
-                    "word": "भाषा"
-                },
-                {
                     "language": "bn",
                     "word": "ভাষা"
-                },
-                {
-                    "language": "pt",
-                    "word": "língua"
                 },
                 {
                     "language": "pt",
@@ -204,21 +196,21 @@
                     "word": "げんご"
                 },
                 {
-                    "language": "ja",
-                    "word": "げんご"
-                },
-                {
                     "language": "id",
                     "word": "bahasa",
                     "ipa": "bahasa"
                 },
                 {
                     "language": "ur",
-                    "word": "زبان"
+                    "word": "زبان",
+                    "ipa": "zəbɑːn",
+                    "loan": "zaban"
                 },
                 {
                     "language": "de",
-                    "word": "sprache"
+                    "word": "sprache",
+                    "ipa": "ʃpʁaːxə",
+                    "loan": "cpraxe"
                 }
             ]
         },
@@ -244,7 +236,9 @@
                 },
                 {
                     "language": "bn",
-                    "word": "বিড়াল"
+                    "word": "বিড়াল",
+                    "ipa": "biɽal",
+                    "loan": "biral"
                 },
                 {
                     "language": "pt",
@@ -252,7 +246,9 @@
                 },
                 {
                     "language": "ru",
-                    "word": "кошка"
+                    "word": "кошка",
+                    "ipa": "koʂkə",
+                    "loan": "kocka"
                 },
                 {
                     "language": "fr",
@@ -261,7 +257,9 @@
                 },
                 {
                     "language": "ar",
-                    "word": "قِطّ"
+                    "word": "قِطّ",
+                    "ipa": "qitˤtˤ",
+                    "loan": "qitt"
                 },
                 {
                     "language": "ja",
@@ -279,7 +277,9 @@
                 },
                 {
                     "language": "de",
-                    "word": "katze"
+                    "word": "katze",
+                    "ipa": "katsə",
+                    "loan": "katse"
                 }
             ]
         },
@@ -293,7 +293,9 @@
                 },
                 {
                     "language": "en",
-                    "word": "apple"
+                    "word": "apple",
+                    "ipa": "æpəl",
+                    "loan": "apl"
                 },
                 {
                     "language": "es",
@@ -305,7 +307,8 @@
                 },
                 {
                     "language": "bn",
-                    "word": "আপেল"
+                    "word": "আপেল",
+                    "ipa": "ˈä.peˑl"
                 },
                 {
                     "language": "pt",
@@ -313,7 +316,9 @@
                 },
                 {
                     "language": "ru",
-                    "word": "яблоко"
+                    "word": "яблоко",
+                    "ipa": "jabɫəkə",
+                    "loan": "yabloko"
                 },
                 {
                     "language": "fr",
@@ -321,23 +326,29 @@
                 },
                 {
                     "language": "ar",
-                    "word": "تُفَّاحَة"
+                    "word": "تُفَّاحَة",
+                    "ipa": "tuf.faː.ħa"
                 },
                 {
                     "language": "ja",
-                    "word": "リンゴ"
+                    "word": "りんご"
                 },
                 {
                     "language": "id",
-                    "word": "apel"
+                    "word": "apel",
+                    "ipa": "apəl",
+                    "loan": "apel"
                 },
                 {
                     "language": "ur",
-                    "word": "سیب"
+                    "word": "سیب",
+                    "ipa": "seb"
                 },
                 {
                     "language": "de",
-                    "word": "Apfel"
+                    "word": "apfel",
+                    "ipa": "apfəl",
+                    "loan": "apfel"
                 }
             ]
         },
@@ -363,7 +374,8 @@
                 },
                 {
                     "language": "bn",
-                    "word": "লাল"
+                    "word": "লাল",
+                    "ipa": "lal"
                 },
                 {
                     "language": "pt",
@@ -379,19 +391,22 @@
                 },
                 {
                     "language": "ar",
-                    "word": "حُمْرَة"
+                    "word": "حُمْرَة",
+                    "ipa": "ħumra"
                 },
                 {
                     "language": "ja",
-                    "word": "赤"
+                    "word": "あか"
                 },
                 {
                     "language": "id",
-                    "word": "merah"
+                    "word": "merah",
+                    "ipa": "merah"
                 },
                 {
                     "language": "ur",
-                    "word": "سرخ"
+                    "word": "سرخ",
+                    "ipa": "surx"
                 },
                 {
                     "language": "de",
@@ -421,7 +436,8 @@
                 },
                 {
                     "language": "bn",
-                    "word": "খাওয়া"
+                    "word": "খাওয়া",
+                    "ipa": "ˈkʰaʊ̯a"
                 },
                 {
                     "language": "pt",
@@ -441,11 +457,12 @@
                 },
                 {
                     "language": "ja",
-                    "word": "赤"
+                    "word": "たべる"
                 },
                 {
                     "language": "id",
-                    "word": "makan"
+                    "word": "makan",
+                    "ipa": "makan"
                 },
                 {
                     "language": "ur",
@@ -453,7 +470,9 @@
                 },
                 {
                     "language": "de",
-                    "word": "essen"
+                    "word": "essen",
+                    "ipa": "ɛsən",
+                    "loan": "esen"
                 }
             ]
         },
@@ -475,11 +494,14 @@
                 },
                 {
                     "language": "hi",
-                    "word": "पसंद करना"
+                    "word": "पसंद करना",
+                    "ipa": "pə.sənd̪ kəɾ.n̪äː",
+                    "loan": "pasandkarna"
                 },
                 {
                     "language": "bn",
-                    "word": "পছন্দ করা"
+                    "word": "পছন্দ করা",
+                    "ipa": "pɒ.sɒn kɔɾa"
                 },
                 {
                     "language": "pt",
@@ -487,7 +509,9 @@
                 },
                 {
                     "language": "ru",
-                    "word": "нравиться"
+                    "word": "нравиться",
+                    "ipa": "nravʲɪt͡sə",
+                    "loan": "nravitsa"
                 },
                 {
                     "language": "fr",
@@ -499,77 +523,23 @@
                 },
                 {
                     "language": "ja",
-                    "word": "好き"
+                    "word": "すき"
                 },
                 {
                     "language": "id",
-                    "word": "suka"
+                    "word": "suka",
+                    "ipa": "suka"
                 },
                 {
                     "language": "ur",
-                    "word": "پسند کرنا"
+                    "word": "پسند کرنا",
+                    "ipa": "pasand karna"
                 },
                 {
                     "language": "de",
-                    "word": "mögen"
-                }
-            ]
-        },
-        {
-            "id": 126,
-            "meaning": "like",
-            "origins": [
-                {
-                    "language": "zh",
-                    "word": "喜歡"
-                },
-                {
-                    "language": "en",
-                    "word": "like"
-                },
-                {
-                    "language": "es",
-                    "word": "gustar"
-                },
-                {
-                    "language": "hi",
-                    "word": "पसंद करना"
-                },
-                {
-                    "language": "bn",
-                    "word": "পছন্দ করা"
-                },
-                {
-                    "language": "pt",
-                    "word": "gostar"
-                },
-                {
-                    "language": "ru",
-                    "word": "нравиться"
-                },
-                {
-                    "language": "fr",
-                    "word": "aimer"
-                },
-                {
-                    "language": "ar",
-                    "word": "حب"
-                },
-                {
-                    "language": "ja",
-                    "word": "好き"
-                },
-                {
-                    "language": "id",
-                    "word": "suka"
-                },
-                {
-                    "language": "ur",
-                    "word": "پسند کرنا"
-                },
-                {
-                    "language": "de",
-                    "word": "mögen"
+                    "word": "mögen",
+                    "ipa": "møːɡən",
+                    "loan": "megen"
                 }
             ]
         },
@@ -591,11 +561,14 @@
                 },
                 {
                     "language": "hi",
-                    "word": "पुस्तक"
+                    "word": "पुस्तक",
+                    "ipa": "pʊst̪ək",
+                    "loan": "pustak"
                 },
                 {
                     "language": "bn",
-                    "word": "বই"
+                    "word": "বই",
+                    "ipa": "boi"
                 },
                 {
                     "language": "pt",
@@ -603,7 +576,9 @@
                 },
                 {
                     "language": "ru",
-                    "word": "книга"
+                    "word": "книга",
+                    "ipa": "knʲiɡə",
+                    "loan": "kniga"
                 },
                 {
                     "language": "fr",
@@ -615,19 +590,22 @@
                 },
                 {
                     "language": "ja",
-                    "word": "本"
+                    "word": "ほん",
+                    "ipa": "ho̞ɴ"
                 },
                 {
                     "language": "id",
-                    "word": "buku"
+                    "word": "buku",
+                    "ipa": "buku"
                 },
                 {
                     "language": "ur",
-                    "word": "کِتَاب"
+                    "word": "کِتَاب",
+                    "ipa": "kitab"
                 },
                 {
                     "language": "de",
-                    "word": "Buch"
+                    "word": "buch"
                 }
             ]
         }
