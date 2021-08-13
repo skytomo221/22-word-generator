@@ -22,18 +22,18 @@ red
 ## Origins
 
 Weight sum: 4307.36075
-|ISO 639-1|Weight|Regular weight|Origin word|Loanword|
-|:-:|:-:|:-:|:-:|:-:|
-|zh|1020.85|0.2370|紅色|xunso|
-|en|818.9|0.1901|red|red|
-|es|500.45|0.1162|rojo|roxo|
-|hi|489.65|0.1137|लाल|lal|
-|bn|246.9|0.0573|লাল|lal|
-|pt|240|0.0557|vermelho|vexmewu|
-|ru|205.75|0.0478|красный|krasniy|
-|fr|176.95|0.0411|rouge|ruj|
-|ar|137|0.0318|حُمْرَة|xumra|
-|ja|126.26075|0.0293|あか|aka|
-|id|121.3|0.0282|merah|merah|
-|ur|119.8|0.0278|سرخ|surx|
-|de|103.55|0.0240|rot|rot|
+|ISO 639-1|Weight|Regular weight|Origin word|IPA|Loanword|
+|:-:|:-:|:-:|:-:|:-:|:-:|
+|zh|1020.85|0.2370|紅色|xʊŋ³⁵sɤ⁵¹|xunso|
+|en|818.9|0.1901|red|ɹɛd|red|
+|es|500.45|0.1162|rojo|roxo|roxo|
+|hi|489.65|0.1137|लाल|lɑːl|lal|
+|bn|246.9|0.0573|লাল|lal|lal|
+|pt|240|0.0557|vermelho|vexmeʎʊ|vexmewu|
+|ru|205.75|0.0478|красный|krasnɨj|krasniy|
+|fr|176.95|0.0411|rouge|ʁuʒ|ruj|
+|ar|137|0.0318|حُمْرَة|ħumra|xumra|
+|ja|126.26075|0.0293|あか|a̠ka̠|aka|
+|id|121.3|0.0282|merah|merah|merah|
+|ur|119.8|0.0278|سرخ|surx|surx|
+|de|103.55|0.0240|rot|roːt|rot|

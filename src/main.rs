@@ -407,16 +407,17 @@ pub fn main() {
                 s
             };
             let langs_info = {
-                let mut s = "|ISO 639-1|Weight|Regular weight|Origin word|Loanword|\n|:-:|:-:|:-:|:-:|:-:|\n"
+                let mut s = "|ISO 639-1|Weight|Regular weight|Origin word|IPA|Loanword|\n|:-:|:-:|:-:|:-:|:-:|:-:|\n"
                     .to_string();
                 for origin in &candidate_words.super_word.origins {
                     let language = &origin.language;
                     s.push_str(&format!(
-                        "|{}|{}|{:.4}|{}|{}|\n",
+                        "|{}|{}|{:.4}|{}|{}|{}|\n",
                         language,
                         candidate_words.get_population(&language),
                         candidate_words.get_population(&language) / candidate_words.weight_sum,
                         origin.word,
+                        origin.ipa.as_ref().unwrap(),
                         origin.loan.as_ref().unwrap(),
                     ));
                 }
