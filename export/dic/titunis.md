@@ -1,4 +1,4 @@
-# tituhis
+# titunis
 
 ## Meaning
 
@@ -8,16 +8,16 @@ language name
 
 |Word|Score|
 |:-:|:-:|
-|tituhis|1.701223|
-|titulis|1.701223|
-|titunis|1.694927|
-|tidosis|1.661366|
-|batituh|1.633526|
-|titusis|1.632768|
-|batitun|1.632516|
-|tisituh|1.601197|
-|titudis|1.581833|
-|tituvis|1.581833|
+|titunis|1.694897|
+|tidosis|1.661336|
+|tituhis|1.641476|
+|titulis|1.641476|
+|titusis|1.632738|
+|batitun|1.632487|
+|titudis|1.581803|
+|tituvis|1.581803|
+|titucis|1.581759|
+|tituris|1.581759|
 
 ## Origins
 
@@ -33,7 +33,6 @@ Weight sum: 4060.46075
 |fr|176.95|0.0436|vingt-deux|vɛ̃ dø|vede|
 |ar|137|0.0337|اثنان وعشرون|iθnaːn oː ʕiʃruːn|isnanouicrun|
 |ja|126.26075|0.0311|にじゅうに|ɲ̟i d͡ʑɨᵝː ɲ̟i|nidjini|
-|id|121.3|0.0299|dua puluh dua|dua pulʊh dua|duapuluhdua|
 |id|121.3|0.0299|dua puluh dua|dua pulʊh dua|duapuluhdua|
 |ur|119.8|0.0295|بائیس|||
 |de|103.55|0.0255|zweiundzwanzig|t͡svaɪ̯ʊntt͡svant͡sɪç|tsvaiunttsvantsik|
