@@ -355,14 +355,8 @@ pub fn main() {
                             origin.word, origin.language
                         ),
                     }
-                    match Some(convert::to_latin(&origin.ipa.as_ref().unwrap())) {
-                        Some(loan) => origin.loan = Some(loan),
-                        None => panic!(
-                            "借用語に変換できませんでした。 Word: {} Language: {} IPA: {:?}",
-                            origin.word, origin.language, origin.ipa
-                        ),
-                    }
-                } else if origin.loan == None {
+                }
+                if origin.loan == None {
                     match Some(convert::to_latin(&origin.ipa.as_ref().unwrap())) {
                         Some(loan) => origin.loan = Some(loan),
                         None => panic!(
