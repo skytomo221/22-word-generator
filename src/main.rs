@@ -342,9 +342,10 @@ pub fn main() {
     let super_words = recipe.super_words;
     let mut generated = BTreeMap::new();
     println!("super_words.words.len() = {}", super_words.len());
-    for super_word in super_words {
-        let super_word = {
-            let mut new_super_word = super_word.clone();
+    let super_words = {
+        let mut new_super_words: Vec<SuperWord> = Vec::new();
+        for super_word in super_words {
+            let mut new_super_word = super_word;
             for origin in &mut new_super_word.origins {
                 if origin.ipa == None {
                     match convert::to_ipa(&origin.word, &origin.language) {
@@ -377,8 +378,11 @@ pub fn main() {
                     );
                 }
             }
-            new_super_word
-        };
+            new_super_words.push(new_super_word);
+        }
+        new_super_words
+    };
+    for super_word in super_words.clone() {
         let mut candidate_words = CandidateWords {
             super_languages: &super_languages,
             super_word,
@@ -436,6 +440,13 @@ pub fn main() {
                 best_word.word.clone(),
                 candidate_words.super_word.meaning.clone(),
             );
+        }
+        {
+            let recipe = Recipe {
+                super_languages: super_languages.clone(),
+                super_words: super_words.clone(),
+            };
+            serde_json::to_writer_pretty(&File::create("./data/result.json").unwrap(), &recipe);
         }
         {
             let mut f = fs::File::create("./export/word-list.md").unwrap();

@@ -1,0 +1,752 @@
+{
+  "super_languages": [
+    {
+      "language": "zh",
+      "population": 1020.85
+    },
+    {
+      "language": "en",
+      "population": 818.9
+    },
+    {
+      "language": "es",
+      "population": 500.45
+    },
+    {
+      "language": "hi",
+      "population": 489.65
+    },
+    {
+      "language": "bn",
+      "population": 246.9
+    },
+    {
+      "language": "pt",
+      "population": 240.0
+    },
+    {
+      "language": "ru",
+      "population": 205.75
+    },
+    {
+      "language": "fr",
+      "population": 176.95
+    },
+    {
+      "language": "ar",
+      "population": 137.0
+    },
+    {
+      "language": "ja",
+      "population": 126.26075
+    },
+    {
+      "language": "id",
+      "population": 121.3
+    },
+    {
+      "language": "ur",
+      "population": 119.8
+    },
+    {
+      "language": "de",
+      "population": 103.55
+    },
+    {
+      "language": "te",
+      "population": 87.9
+    },
+    {
+      "language": "tr",
+      "population": 82.35
+    },
+    {
+      "language": "ko",
+      "population": 79.4
+    },
+    {
+      "language": "vi",
+      "population": 76.5
+    },
+    {
+      "language": "jv",
+      "population": 68.3
+    },
+    {
+      "language": "sw",
+      "population": 57.35
+    },
+    {
+      "language": "lo",
+      "population": 40.7
+    }
+  ],
+  "super_words": [
+    {
+      "id": 0,
+      "meaning": "language name",
+      "origins": [
+        {
+          "language": "zh",
+          "word": "二十二",
+          "ipa": "ɚ²¹³ sz̩²¹ ɚ²¹³",
+          "loan": "sz"
+        },
+        {
+          "language": "en",
+          "word": "twenty-two",
+          "ipa": "twɛnti tuː",
+          "loan": "twentitu"
+        },
+        {
+          "language": "es",
+          "word": "veintidós",
+          "ipa": "beintidos",
+          "loan": "beintidos"
+        },
+        {
+          "language": "hi",
+          "word": "बाईस",
+          "ipa": "bɑːiːs",
+          "loan": "bais"
+        },
+        {
+          "language": "pt",
+          "word": "vinte e dois",
+          "ipa": "vĩt͡ʃi e dojs",
+          "loan": "vitciedoys"
+        },
+        {
+          "language": "ru",
+          "word": "двадцать два",
+          "ipa": "dvat͡sːɨtʲ dva",
+          "loan": "dvatsitdva"
+        },
+        {
+          "language": "fr",
+          "word": "vingt-deux",
+          "ipa": "vɛ̃ dø",
+          "loan": "vede"
+        },
+        {
+          "language": "ar",
+          "word": "اثنان وعشرون",
+          "ipa": "iθnaːn oː ʕiʃruːn",
+          "loan": "isnanouicrun"
+        },
+        {
+          "language": "ja",
+          "word": "にじゅうに",
+          "ipa": "ɲ̟i d͡ʑɨᵝː ɲ̟i",
+          "loan": "nidjini"
+        },
+        {
+          "language": "id",
+          "word": "dua puluh dua",
+          "ipa": "dua pulʊh dua",
+          "loan": "duapuluhdua"
+        },
+        {
+          "language": "ur",
+          "word": "بائیس",
+          "ipa": "",
+          "loan": ""
+        },
+        {
+          "language": "de",
+          "word": "zweiundzwanzig",
+          "ipa": "t͡svaɪ̯ʊntt͡svant͡sɪç",
+          "loan": "tsvaiunttsvantsik"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "meaning": "language",
+      "origins": [
+        {
+          "language": "zh",
+          "word": "語言",
+          "ipa": "y²¹⁴⁻²¹¹jɛn³⁵",
+          "loan": "iyen"
+        },
+        {
+          "language": "en",
+          "word": "language",
+          "ipa": "læŋɡwɪd͡ʒ",
+          "loan": "langwidj"
+        },
+        {
+          "language": "es",
+          "word": "lengua",
+          "ipa": "lenɡwa",
+          "loan": "lengwa"
+        },
+        {
+          "language": "hi",
+          "word": "भाषा",
+          "ipa": "bʱɑːʂɑː",
+          "loan": "baca"
+        },
+        {
+          "language": "bn",
+          "word": "ভাষা",
+          "ipa": "bʱaʂaː",
+          "loan": "baca"
+        },
+        {
+          "language": "pt",
+          "word": "língua",
+          "ipa": "lĩɡwɐ",
+          "loan": "ligwa"
+        },
+        {
+          "language": "ru",
+          "word": "язык",
+          "ipa": "jɪzɨk",
+          "loan": "yizik"
+        },
+        {
+          "language": "fr",
+          "word": "langue",
+          "ipa": "lɑ̃ɡ",
+          "loan": "lag"
+        },
+        {
+          "language": "ar",
+          "word": "لغة",
+          "ipa": "luɣa",
+          "loan": "luga"
+        },
+        {
+          "language": "ja",
+          "word": "げんご",
+          "ipa": "ɡẽ̞ŋɡo̞",
+          "loan": "gengo"
+        },
+        {
+          "language": "id",
+          "word": "bahasa",
+          "ipa": "bahasa",
+          "loan": "bahasa"
+        },
+        {
+          "language": "ur",
+          "word": "زبان",
+          "ipa": "zəbɑːn",
+          "loan": "zaban"
+        },
+        {
+          "language": "de",
+          "word": "sprache",
+          "ipa": "ʃpʁaːxə",
+          "loan": "cpraxe"
+        }
+      ]
+    },
+    {
+      "id": 121,
+      "meaning": "cat",
+      "origins": [
+        {
+          "language": "zh",
+          "word": "貓",
+          "ipa": "mau⁵⁵",
+          "loan": "mau"
+        },
+        {
+          "language": "en",
+          "word": "cat",
+          "ipa": "kat",
+          "loan": "kat"
+        },
+        {
+          "language": "es",
+          "word": "gato",
+          "ipa": "ɡato",
+          "loan": "gato"
+        },
+        {
+          "language": "hi",
+          "word": "बिल्ली",
+          "ipa": "bɪlliː",
+          "loan": "billi"
+        },
+        {
+          "language": "bn",
+          "word": "বিড়াল",
+          "ipa": "biɽal",
+          "loan": "biral"
+        },
+        {
+          "language": "pt",
+          "word": "gato",
+          "ipa": "ɡato",
+          "loan": "gato"
+        },
+        {
+          "language": "ru",
+          "word": "кошка",
+          "ipa": "koʂkə",
+          "loan": "kocka"
+        },
+        {
+          "language": "fr",
+          "word": "chat",
+          "ipa": "ʃa",
+          "loan": "ca"
+        },
+        {
+          "language": "ar",
+          "word": "قِطّ",
+          "ipa": "qitˤtˤ",
+          "loan": "qitt"
+        },
+        {
+          "language": "ja",
+          "word": "ねこ",
+          "ipa": "ne̞ko̞",
+          "loan": "neko"
+        },
+        {
+          "language": "id",
+          "word": "kucing",
+          "ipa": "ku.ʧiŋ",
+          "loan": "kuin"
+        },
+        {
+          "language": "ur",
+          "word": "بلّی",
+          "ipa": "viḍālī",
+          "loan": "vidali"
+        },
+        {
+          "language": "de",
+          "word": "katze",
+          "ipa": "katsə",
+          "loan": "katse"
+        }
+      ]
+    },
+    {
+      "id": 122,
+      "meaning": "apple",
+      "origins": [
+        {
+          "language": "zh",
+          "word": "蘋果",
+          "ipa": "pʰin²¹ko⁵³",
+          "loan": "pinko"
+        },
+        {
+          "language": "en",
+          "word": "apple",
+          "ipa": "æpəl",
+          "loan": "apl"
+        },
+        {
+          "language": "es",
+          "word": "manzana",
+          "ipa": "manθana",
+          "loan": "mansana"
+        },
+        {
+          "language": "hi",
+          "word": "सेब",
+          "ipa": "seːb",
+          "loan": "seb"
+        },
+        {
+          "language": "bn",
+          "word": "আপেল",
+          "ipa": "ˈä.peˑl",
+          "loan": "apel"
+        },
+        {
+          "language": "pt",
+          "word": "maçã",
+          "ipa": "masɐ̃",
+          "loan": "masa"
+        },
+        {
+          "language": "ru",
+          "word": "яблоко",
+          "ipa": "jabɫəkə",
+          "loan": "yabloko"
+        },
+        {
+          "language": "fr",
+          "word": "pomme",
+          "ipa": "pɔm",
+          "loan": "pom"
+        },
+        {
+          "language": "ar",
+          "word": "تُفَّاحَة",
+          "ipa": "tuf.faː.ħa",
+          "loan": "tuffaxa"
+        },
+        {
+          "language": "ja",
+          "word": "りんご",
+          "ipa": "ɾʲĩŋɡo̞",
+          "loan": "ringo"
+        },
+        {
+          "language": "id",
+          "word": "apel",
+          "ipa": "apəl",
+          "loan": "apel"
+        },
+        {
+          "language": "ur",
+          "word": "سیب",
+          "ipa": "seb",
+          "loan": "seb"
+        },
+        {
+          "language": "de",
+          "word": "apfel",
+          "ipa": "apfəl",
+          "loan": "apfel"
+        }
+      ]
+    },
+    {
+      "id": 123,
+      "meaning": "red",
+      "origins": [
+        {
+          "language": "zh",
+          "word": "紅色",
+          "ipa": "xʊŋ³⁵sɤ⁵¹",
+          "loan": "xunso"
+        },
+        {
+          "language": "en",
+          "word": "red",
+          "ipa": "ɹɛd",
+          "loan": "red"
+        },
+        {
+          "language": "es",
+          "word": "rojo",
+          "ipa": "roxo",
+          "loan": "roxo"
+        },
+        {
+          "language": "hi",
+          "word": "लाल",
+          "ipa": "lɑːl",
+          "loan": "lal"
+        },
+        {
+          "language": "bn",
+          "word": "লাল",
+          "ipa": "lal",
+          "loan": "lal"
+        },
+        {
+          "language": "pt",
+          "word": "vermelho",
+          "ipa": "vexmeʎʊ",
+          "loan": "vexmewu"
+        },
+        {
+          "language": "ru",
+          "word": "красный",
+          "ipa": "krasnɨj",
+          "loan": "krasniy"
+        },
+        {
+          "language": "fr",
+          "word": "rouge",
+          "ipa": "ʁuʒ",
+          "loan": "ruj"
+        },
+        {
+          "language": "ar",
+          "word": "حُمْرَة",
+          "ipa": "ħumra",
+          "loan": "xumra"
+        },
+        {
+          "language": "ja",
+          "word": "あか",
+          "ipa": "a̠ka̠",
+          "loan": "aka"
+        },
+        {
+          "language": "id",
+          "word": "merah",
+          "ipa": "merah",
+          "loan": "merah"
+        },
+        {
+          "language": "ur",
+          "word": "سرخ",
+          "ipa": "surx",
+          "loan": "surx"
+        },
+        {
+          "language": "de",
+          "word": "rot",
+          "ipa": "roːt",
+          "loan": "rot"
+        }
+      ]
+    },
+    {
+      "id": 124,
+      "meaning": "eat",
+      "origins": [
+        {
+          "language": "zh",
+          "word": "食",
+          "ipa": "i⁵¹",
+          "loan": "i"
+        },
+        {
+          "language": "en",
+          "word": "eat",
+          "ipa": "iːt",
+          "loan": "it"
+        },
+        {
+          "language": "es",
+          "word": "comer",
+          "ipa": "komeɾ",
+          "loan": "komer"
+        },
+        {
+          "language": "hi",
+          "word": "खाना",
+          "ipa": "kʰɑːnɑː",
+          "loan": "kana"
+        },
+        {
+          "language": "bn",
+          "word": "খাওয়া",
+          "ipa": "ˈkʰaʊ̯a",
+          "loan": "kaua"
+        },
+        {
+          "language": "pt",
+          "word": "comer",
+          "ipa": "komeʁ",
+          "loan": "komer"
+        },
+        {
+          "language": "ru",
+          "word": "есть",
+          "ipa": "jesʲtʲ",
+          "loan": "yest"
+        },
+        {
+          "language": "fr",
+          "word": "manger",
+          "ipa": "mɑ̃ʒe",
+          "loan": "maje"
+        },
+        {
+          "language": "ar",
+          "word": "أكل",
+          "ipa": "ʔakala",
+          "loan": "akala"
+        },
+        {
+          "language": "ja",
+          "word": "たべる",
+          "ipa": "ta̠be̞ɾɯ̟ᵝ",
+          "loan": "taberu"
+        },
+        {
+          "language": "id",
+          "word": "makan",
+          "ipa": "makan",
+          "loan": "makan"
+        },
+        {
+          "language": "ur",
+          "word": "کھانا",
+          "ipa": "kʰɑːnɑː",
+          "loan": "kana"
+        },
+        {
+          "language": "de",
+          "word": "essen",
+          "ipa": "ɛsən",
+          "loan": "esen"
+        }
+      ]
+    },
+    {
+      "id": 125,
+      "meaning": "like",
+      "origins": [
+        {
+          "language": "zh",
+          "word": "喜歡",
+          "ipa": "ɕi²¹⁴xwän⁴",
+          "loan": "cixwan"
+        },
+        {
+          "language": "en",
+          "word": "like",
+          "ipa": "laɪk",
+          "loan": "laik"
+        },
+        {
+          "language": "es",
+          "word": "gustar",
+          "ipa": "ɡustaɾ",
+          "loan": "gustar"
+        },
+        {
+          "language": "hi",
+          "word": "पसंद करना",
+          "ipa": "pə.sənd̪ kəɾ.n̪äː",
+          "loan": "pasandkarna"
+        },
+        {
+          "language": "bn",
+          "word": "পছন্দ করা",
+          "ipa": "pɒ.sɒn kɔɾa",
+          "loan": "posonkora"
+        },
+        {
+          "language": "pt",
+          "word": "gostar",
+          "ipa": "ɡostaʁ",
+          "loan": "gostar"
+        },
+        {
+          "language": "ru",
+          "word": "нравиться",
+          "ipa": "nravʲɪt͡sə",
+          "loan": "nravitsa"
+        },
+        {
+          "language": "fr",
+          "word": "aimer",
+          "ipa": "eme",
+          "loan": "eme"
+        },
+        {
+          "language": "ar",
+          "word": "حب",
+          "ipa": "ħabb",
+          "loan": "xabb"
+        },
+        {
+          "language": "ja",
+          "word": "すき",
+          "ipa": "sɨᵝkʲi",
+          "loan": "siki"
+        },
+        {
+          "language": "id",
+          "word": "suka",
+          "ipa": "suka",
+          "loan": "suka"
+        },
+        {
+          "language": "ur",
+          "word": "پسند کرنا",
+          "ipa": "pasand karna",
+          "loan": "pasandkarna"
+        },
+        {
+          "language": "de",
+          "word": "mögen",
+          "ipa": "møːɡən",
+          "loan": "megen"
+        }
+      ]
+    },
+    {
+      "id": 127,
+      "meaning": "book",
+      "origins": [
+        {
+          "language": "zh",
+          "word": "書",
+          "ipa": "fou²⁴",
+          "loan": "fou"
+        },
+        {
+          "language": "en",
+          "word": "book",
+          "ipa": "bʊk",
+          "loan": "buk"
+        },
+        {
+          "language": "es",
+          "word": "libro",
+          "ipa": "libɾo",
+          "loan": "libro"
+        },
+        {
+          "language": "hi",
+          "word": "पुस्तक",
+          "ipa": "pʊst̪ək",
+          "loan": "pustak"
+        },
+        {
+          "language": "bn",
+          "word": "বই",
+          "ipa": "boi",
+          "loan": "boi"
+        },
+        {
+          "language": "pt",
+          "word": "livro",
+          "ipa": "livɾu",
+          "loan": "livru"
+        },
+        {
+          "language": "ru",
+          "word": "книга",
+          "ipa": "knʲiɡə",
+          "loan": "kniga"
+        },
+        {
+          "language": "fr",
+          "word": "livre",
+          "ipa": "livʁ",
+          "loan": "livr"
+        },
+        {
+          "language": "ar",
+          "word": "كتاب",
+          "ipa": "kitaːb",
+          "loan": "kitab"
+        },
+        {
+          "language": "ja",
+          "word": "ほん",
+          "ipa": "ho̞ɴ",
+          "loan": "hon"
+        },
+        {
+          "language": "id",
+          "word": "buku",
+          "ipa": "buku",
+          "loan": "buku"
+        },
+        {
+          "language": "ur",
+          "word": "کِتَاب",
+          "ipa": "kitab",
+          "loan": "kitab"
+        },
+        {
+          "language": "de",
+          "word": "buch",
+          "ipa": "buːχ",
+          "loan": "bux"
+        }
+      ]
+    }
+  ]
+}
