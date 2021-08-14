@@ -8,16 +8,16 @@ language name
 
 |Word|Score|
 |:-:|:-:|
-|titesis|1.933648|
-|titunes|1.894296|
-|tidesis|1.886370|
-|titises|1.882670|
-|desitis|1.869787|
-|vesitis|1.869757|
-|titudes|1.862985|
-|tituves|1.862985|
-|tituzed|1.862985|
-|titides|1.846717|
+|titesis|1.992656|
+|tidesis|1.945378|
+|titises|1.941678|
+|desitis|1.928795|
+|vesitis|1.928765|
+|titunes|1.894325|
+|tisized|1.878124|
+|batites|1.874261|
+|bazetit|1.874261|
+|titudes|1.863015|
 
 ## Origins
 
@@ -34,5 +34,5 @@ Weight sum: 4060.46075
 |ar|137|0.0337|اثنان وعشرون|iθnaːn oː ʕiʃruːn|isnanouicrun|
 |ja|126.26075|0.0311|にじゅうに|ɲ̟i d͡ʑɨᵝː ɲ̟i|nidjini|
 |id|121.3|0.0299|dua puluh dua|dua pulʊh dua|duapuluhdua|
-|ur|119.8|0.0295|بائیس|||
+|ur|119.8|0.0295|بائیس|bais|bais|
 |de|103.55|0.0255|zweiundzwanzig|t͡svaɪ̯ʊntt͡svant͡sɪç|tsvaiunttsvantsik|
