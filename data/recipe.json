@@ -89,7 +89,8 @@
         {
           "language": "zh",
           "word": "二十二",
-          "ipa": "ɚ²¹³ sz̩²¹ ɚ²¹³"
+          "ipa": "ɚ²¹³ sz̩²¹ ɚ²¹³",
+          "loan": "esze"
         },
         {
           "language": "en",
@@ -415,7 +416,8 @@
       "origins": [
         {
           "language": "zh",
-          "word": "食"
+          "word": "食",
+          "ipa": "ʂʐ̩³⁵"
         },
         {
           "language": "en",

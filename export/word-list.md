@@ -9,4 +9,4 @@
 |[libuk](./dic/libuk.md)|book|
 |[mapeb](./dic/mapeb.md)|apple|
 |[rexun](./dic/rexun.md)|red|
-|[titunis](./dic/titunis.md)|language name|
+|[titesis](./dic/titesis.md)|language name|

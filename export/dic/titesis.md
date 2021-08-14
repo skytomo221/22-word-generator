@@ -1,4 +1,4 @@
-# titunis
+# titesis
 
 ## Meaning
 
@@ -8,23 +8,23 @@ language name
 
 |Word|Score|
 |:-:|:-:|
-|titunis|1.694897|
-|tidosis|1.661336|
-|tituhis|1.641476|
-|titulis|1.641476|
-|titusis|1.632738|
-|batitun|1.632487|
-|titudis|1.581803|
-|tituvis|1.581803|
-|titucis|1.581759|
-|tituris|1.581759|
+|titesis|1.933648|
+|titunes|1.894296|
+|tidesis|1.886370|
+|titises|1.882670|
+|desitis|1.869787|
+|vesitis|1.869757|
+|titudes|1.862985|
+|tituves|1.862985|
+|tituzed|1.862985|
+|titides|1.846717|
 
 ## Origins
 
 Weight sum: 4060.46075
 |ISO 639-1|Weight|Regular weight|Origin word|IPA|Loanword|
 |:-:|:-:|:-:|:-:|:-:|:-:|
-|zh|1020.85|0.2514|二十二|ɚ²¹³ sz̩²¹ ɚ²¹³|sz|
+|zh|1020.85|0.2514|二十二|ɚ²¹³ sz̩²¹ ɚ²¹³|esze|
 |en|818.9|0.2017|twenty-two|twɛnti tuː|twentitu|
 |es|500.45|0.1232|veintidós|beintidos|beintidos|
 |hi|489.65|0.1206|बाईस|bɑːiːs|bais|

@@ -10,21 +10,21 @@ eat
 |:-:|:-:|
 |kamer|1.092005|
 |kaner|1.089753|
-|kanit|1.067991|
-|kajer|1.043303|
+|kanit|1.067754|
+|kajer|1.043540|
 |mekan|1.031156|
 |kokan|1.031109|
 |kajit|0.980436|
 |kaber|0.978727|
 |kaser|0.968158|
-|kabit|0.956912|
+|kabit|0.956675|
 
 ## Origins
 
 Weight sum: 4307.36075
 |ISO 639-1|Weight|Regular weight|Origin word|IPA|Loanword|
 |:-:|:-:|:-:|:-:|:-:|:-:|
-|zh|1020.85|0.2370|食|i⁵¹|i|
+|zh|1020.85|0.2370|食|ʂʐ̩³⁵|cj|
 |en|818.9|0.1901|eat|iːt|it|
 |es|500.45|0.1162|comer|komeɾ|komer|
 |hi|489.65|0.1137|खाना|kʰɑːnɑː|kana|
