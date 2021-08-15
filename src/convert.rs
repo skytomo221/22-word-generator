@@ -129,6 +129,12 @@ fn ipa_to_alphabets() -> HashMap<&'static str, &'static str> {
     alphabets.insert("ɯ̽", "u");
     alphabets.insert("ʊ", "u");
     alphabets.insert("ə", "ə");
+    alphabets.insert("ʦ", "ts");
+    alphabets.insert("ʣ", "dz");
+    alphabets.insert("ʧ", "tc");
+    alphabets.insert("ʤ", "dj");
+    alphabets.insert("ʨ", "tc");
+    alphabets.insert("ʥ", "dz");
     alphabets
 }
 
