@@ -1,27 +1,27 @@
-use std::{collections::HashMap, fs};
+use std::fs;
 
-fn language_to_filename() -> HashMap<&'static str, &'static str> {
-    let mut filenames = HashMap::new();
-    filenames.insert("zh", "cmn_hani_broad.tsv");
-    filenames.insert("en", "eng_latn_uk_broad.tsv");
-    filenames.insert("es", "spa_latn_ca_broad_filtered.tsv");
-    filenames.insert("hi", "hin_deva_broad.tsv");
-    filenames.insert("bn", "ben_beng_broad.tsv");
-    filenames.insert("pt", "por_latn_bz_broad.tsv");
-    filenames.insert("ru", "rus_cyrl_narrow.tsv");
-    filenames.insert("fr", "fre_latn_broad.tsv");
-    filenames.insert("ar", "ara_arab_broad.tsv");
-    filenames.insert("ja", "jpn_hira_narrow.tsv");
-    filenames.insert("id", "ind_latn_narrow.tsv");
-    filenames.insert("ur", "urd_arab_broad.tsv");
-    filenames.insert("de", "ger_latn_broad.tsv");
-    filenames
+fn language_to_filename(language: &str) -> Option<String> {
+    match language {
+        "zh" => Some("cmn_hani_broad.tsv".into()),
+        "en" => Some("eng_latn_uk_broad.tsv".into()),
+        "es" => Some("spa_latn_ca_broad_filtered.tsv".into()),
+        "hi" => Some("hin_deva_broad.tsv".into()),
+        "bn" => Some("ben_beng_broad.tsv".into()),
+        "pt" => Some("por_latn_bz_broad.tsv".into()),
+        "ru" => Some("rus_cyrl_narrow.tsv".into()),
+        "fr" => Some("fre_latn_broad.tsv".into()),
+        "ar" => Some("ara_arab_broad.tsv".into()),
+        "ja" => Some("jpn_hira_narrow.tsv".into()),
+        "id" => Some("ind_latn_narrow.tsv".into()),
+        "ur" => Some("urd_arab_broad.tsv".into()),
+        "de" => Some("ger_latn_broad.tsv".into()),
+        _ => None,
+    }
 }
 
 pub fn to_ipa(word: &str, lang: &str) -> Option<String> {
     let dir = "./library/wikipron/data/scrape/tsv/";
-    let filenames = language_to_filename();
-    let filename = dir.to_string() + filenames.get(lang).unwrap();
+    let filename = dir.to_string() + &language_to_filename(lang).unwrap();
     let dictionary = fs::read_to_string(filename).unwrap();
     for line in dictionary.lines() {
         let (orig, ipa) = {
@@ -35,122 +35,119 @@ pub fn to_ipa(word: &str, lang: &str) -> Option<String> {
     None
 }
 
-fn ipa_to_alphabets() -> HashMap<&'static str, &'static str> {
-    let mut alphabets = HashMap::new();
-    alphabets.insert("p", "p");
-    alphabets.insert("b", "b");
-    alphabets.insert("t", "t");
-    alphabets.insert("d", "d");
-    alphabets.insert("ʈ", "t");
-    alphabets.insert("ɖ", "d");
-    alphabets.insert("c", "k");
-    alphabets.insert("ɟ", "g");
-    alphabets.insert("k", "k");
-    alphabets.insert("ɡ", "g");
-    alphabets.insert("q", "k");
-    alphabets.insert("ɢ", "g");
-    alphabets.insert("m", "m");
-    alphabets.insert("ɱ", "m");
-    alphabets.insert("n", "n");
-    alphabets.insert("ɳ", "n");
-    alphabets.insert("ɲ", "n");
-    alphabets.insert("ŋ", "n");
-    alphabets.insert("ɴ", "n");
-    alphabets.insert("ʙ", "b");
-    alphabets.insert("r", "r");
-    alphabets.insert("ʀ", "r");
-    alphabets.insert("ⱱ", "v");
-    alphabets.insert("ɾ", "r");
-    alphabets.insert("ɽ", "r");
-    alphabets.insert("ɸ", "f");
-    alphabets.insert("β", "v");
-    alphabets.insert("f", "f");
-    alphabets.insert("v", "v");
-    alphabets.insert("θ", "s");
-    alphabets.insert("ð", "z");
-    alphabets.insert("s", "s");
-    alphabets.insert("z", "z");
-    alphabets.insert("ʃ", "c");
-    alphabets.insert("ʒ", "j");
-    alphabets.insert("ʂ", "c");
-    alphabets.insert("ʐ", "j");
-    alphabets.insert("ç", "x");
-    alphabets.insert("ʝ", "i");
-    alphabets.insert("x", "x");
-    alphabets.insert("ɣ", "g");
-    alphabets.insert("χ", "x");
-    alphabets.insert("ʁ", "r");
-    alphabets.insert("ħ", "x");
-    alphabets.insert("ʕ", "u");
-    alphabets.insert("ʜ", "x");
-    alphabets.insert("ʢ", "u");
-    alphabets.insert("h", "h");
-    alphabets.insert("ɦ", "x");
-    alphabets.insert("ʋ", "w");
-    alphabets.insert("ɹ", "r");
-    alphabets.insert("ɻ", "r");
-    alphabets.insert("j", "y");
-    alphabets.insert("ɰ", "w");
-    alphabets.insert("ɬ", "c");
-    alphabets.insert("ɮ", "j");
-    alphabets.insert("l", "l");
-    alphabets.insert("ɭ", "l");
-    alphabets.insert("ʎ", "w");
-    alphabets.insert("ʟ", "w");
-    alphabets.insert("ɺ", "r");
-    alphabets.insert("ɕ", "c");
-    alphabets.insert("ʑ", "j");
-    alphabets.insert("ɧ", "c");
-    alphabets.insert("ɫ", "l");
-    alphabets.insert("ɥ", "w");
-    alphabets.insert("ʍ", "w");
-    alphabets.insert("w", "w");
-    alphabets.insert("a", "a");
-    alphabets.insert("ɑ", "a");
-    alphabets.insert("ʌ", "a");
-    alphabets.insert("æ", "a");
-    alphabets.insert("ɐ", "a");
-    alphabets.insert("ɶ", "a");
-    alphabets.insert("ä", "a");
-    alphabets.insert("ɛ", "e");
-    alphabets.insert("e", "e");
-    alphabets.insert("ø", "e");
-    alphabets.insert("ɘ", "e");
-    alphabets.insert("i", "i");
-    alphabets.insert("y", "i");
-    alphabets.insert("ɨ", "i");
-    alphabets.insert("ɪ", "i");
-    alphabets.insert("ʏ", "i");
-    alphabets.insert("ɪ̈", "i");
-    alphabets.insert("o", "o");
-    alphabets.insert("ɔ", "o");
-    alphabets.insert("ɵ", "o");
-    alphabets.insert("ɤ", "o");
-    alphabets.insert("ɒ", "o");
-    alphabets.insert("u", "u");
-    alphabets.insert("ɯ", "u");
-    alphabets.insert("ʉ", "u");
-    alphabets.insert("ʊ̈", "u");
-    alphabets.insert("ɯ̽", "u");
-    alphabets.insert("ʊ", "u");
-    alphabets.insert("ə", "ə");
-    alphabets.insert("ʦ", "ts");
-    alphabets.insert("ʣ", "dz");
-    alphabets.insert("ʧ", "tc");
-    alphabets.insert("ʤ", "dj");
-    alphabets.insert("ʨ", "tc");
-    alphabets.insert("ʥ", "dz");
-    alphabets
+fn ipa_to_alphabets(c: &char) -> Option<String> {
+    match c {
+        'p' => Some("p".into()),
+        'b' => Some("b".into()),
+        't' => Some("t".into()),
+        'd' => Some("d".into()),
+        'ʈ' => Some("t".into()),
+        'ɖ' => Some("d".into()),
+        'c' => Some("k".into()),
+        'ɟ' => Some("g".into()),
+        'k' => Some("k".into()),
+        'ɡ' => Some("g".into()),
+        'q' => Some("k".into()),
+        'ɢ' => Some("g".into()),
+        'm' => Some("m".into()),
+        'ɱ' => Some("m".into()),
+        'n' => Some("n".into()),
+        'ɳ' => Some("n".into()),
+        'ɲ' => Some("n".into()),
+        'ŋ' => Some("n".into()),
+        'ɴ' => Some("n".into()),
+        'ʙ' => Some("b".into()),
+        'r' => Some("r".into()),
+        'ʀ' => Some("r".into()),
+        'ⱱ' => Some("v".into()),
+        'ɾ' => Some("r".into()),
+        'ɽ' => Some("r".into()),
+        'ɸ' => Some("f".into()),
+        'β' => Some("v".into()),
+        'f' => Some("f".into()),
+        'v' => Some("v".into()),
+        'θ' => Some("s".into()),
+        'ð' => Some("z".into()),
+        's' => Some("s".into()),
+        'z' => Some("z".into()),
+        'ʃ' => Some("c".into()),
+        'ʒ' => Some("j".into()),
+        'ʂ' => Some("c".into()),
+        'ʐ' => Some("j".into()),
+        'ç' => Some("x".into()),
+        'ʝ' => Some("i".into()),
+        'x' => Some("x".into()),
+        'ɣ' => Some("g".into()),
+        'χ' => Some("x".into()),
+        'ʁ' => Some("r".into()),
+        'ħ' => Some("x".into()),
+        'ʕ' => Some("u".into()),
+        'ʜ' => Some("x".into()),
+        'ʢ' => Some("u".into()),
+        'h' => Some("h".into()),
+        'ɦ' => Some("x".into()),
+        'ʋ' => Some("w".into()),
+        'ɹ' => Some("r".into()),
+        'ɻ' => Some("r".into()),
+        'j' => Some("y".into()),
+        'ɰ' => Some("w".into()),
+        'ɬ' => Some("c".into()),
+        'ɮ' => Some("j".into()),
+        'l' => Some("l".into()),
+        'ɭ' => Some("l".into()),
+        'ʎ' => Some("w".into()),
+        'ʟ' => Some("w".into()),
+        'ɺ' => Some("r".into()),
+        'ɕ' => Some("c".into()),
+        'ʑ' => Some("j".into()),
+        'ɧ' => Some("c".into()),
+        'ɫ' => Some("l".into()),
+        'ɥ' => Some("w".into()),
+        'ʍ' => Some("w".into()),
+        'w' => Some("w".into()),
+        'a' => Some("a".into()),
+        'ɑ' => Some("a".into()),
+        'ʌ' => Some("a".into()),
+        'æ' => Some("a".into()),
+        'ɐ' => Some("a".into()),
+        'ɶ' => Some("a".into()),
+        'ä' => Some("a".into()),
+        'ɛ' => Some("e".into()),
+        'e' => Some("e".into()),
+        'ø' => Some("e".into()),
+        'ɘ' => Some("e".into()),
+        'i' => Some("i".into()),
+        'y' => Some("i".into()),
+        'ɨ' => Some("i".into()),
+        'ɪ' => Some("i".into()),
+        'ʏ' => Some("i".into()),
+        'o' => Some("o".into()),
+        'ɔ' => Some("o".into()),
+        'ɵ' => Some("o".into()),
+        'ɤ' => Some("o".into()),
+        'ɒ' => Some("o".into()),
+        'u' => Some("u".into()),
+        'ɯ' => Some("u".into()),
+        'ʉ' => Some("u".into()),
+        'ʊ' => Some("u".into()),
+        'ə' => Some("ə".into()),
+        'ʦ' => Some("ts".into()),
+        'ʣ' => Some("dz".into()),
+        'ʧ' => Some("tc".into()),
+        'ʤ' => Some("dj".into()),
+        'ʨ' => Some("tc".into()),
+        'ʥ' => Some("dz".into()),
+        _ => None,
+    }
 }
 
 pub fn to_latin(word: &str) -> String {
     use unicode_normalization::UnicodeNormalization;
-    let ipa_to_alphabets = ipa_to_alphabets();
     let word = word.nfd().to_string();
     let mut latins = String::new();
     for c in word.chars() {
-        match ipa_to_alphabets.get(c.to_string().as_str()) {
-            Some(x) => latins += x,
+        match ipa_to_alphabets(&c) {
+            Some(x) => latins += &x,
             None => {}
         }
     }
