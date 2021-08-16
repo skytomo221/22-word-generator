@@ -1,22 +1,27 @@
 use std::{collections::HashMap, fs};
 
+fn language_to_filename() -> HashMap<&'static str, &'static str> {
+    let mut filenames = HashMap::new();
+    filenames.insert("zh", "cmn_hani_broad.tsv");
+    filenames.insert("en", "eng_latn_uk_broad.tsv");
+    filenames.insert("es", "spa_latn_ca_broad_filtered.tsv");
+    filenames.insert("hi", "hin_deva_broad.tsv");
+    filenames.insert("bn", "ben_beng_broad.tsv");
+    filenames.insert("pt", "por_latn_bz_broad.tsv");
+    filenames.insert("ru", "rus_cyrl_narrow.tsv");
+    filenames.insert("fr", "fre_latn_broad.tsv");
+    filenames.insert("ar", "ara_arab_broad.tsv");
+    filenames.insert("ja", "jpn_hira_narrow.tsv");
+    filenames.insert("id", "ind_latn_narrow.tsv");
+    filenames.insert("ur", "urd_arab_broad.tsv");
+    filenames.insert("de", "ger_latn_broad.tsv");
+    filenames
+}
+
 pub fn to_ipa(word: &str, lang: &str) -> Option<String> {
     let dir = "./library/wikipron/data/scrape/tsv/";
-    let mut index = HashMap::new();
-    index.insert("zh", "cmn_hani_broad.tsv");
-    index.insert("en", "eng_latn_uk_broad.tsv");
-    index.insert("es", "spa_latn_ca_broad_filtered.tsv");
-    index.insert("hi", "hin_deva_broad.tsv");
-    index.insert("bn", "ben_beng_broad.tsv");
-    index.insert("pt", "por_latn_bz_broad.tsv");
-    index.insert("ru", "rus_cyrl_narrow.tsv");
-    index.insert("fr", "fre_latn_broad.tsv");
-    index.insert("ar", "ara_arab_broad.tsv");
-    index.insert("ja", "jpn_hira_narrow.tsv");
-    index.insert("id", "ind_latn_narrow.tsv");
-    index.insert("ur", "urd_arab_broad.tsv");
-    index.insert("de", "ger_latn_broad.tsv");
-    let filename = dir.to_string() + index.get(lang).unwrap();
+    let filenames = language_to_filename();
+    let filename = dir.to_string() + filenames.get(lang).unwrap();
     let dictionary = fs::read_to_string(filename).unwrap();
     for line in dictionary.lines() {
         let (orig, ipa) = {
