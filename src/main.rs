@@ -1,5 +1,6 @@
 use bacitit_word_generator::convert;
 use bacitit_word_generator::phoneme::{Phoneme, PhonemeExt};
+use bacitit_word_generator::phonotactics::PhonotacticsExt;
 use bacitit_word_generator::recipe::{Recipe, SuperLanguage, SuperWord};
 use std::cmp::Ordering;
 use std::collections::BTreeMap;
@@ -7,69 +8,6 @@ use std::collections::BTreeSet;
 use std::fs::File;
 use std::io::BufReader;
 use std::{fs, io::Write};
-
-pub trait StringExt {
-    fn is_match_w212(&self) -> bool;
-    fn is_match_w209(&self) -> bool;
-    fn is_match_w213(&self) -> bool;
-    fn is_match_w214(&self) -> bool;
-    fn is_match_w215(&self) -> bool;
-}
-
-impl StringExt for Vec<Phoneme> {
-    fn is_match_w212(&self) -> bool {
-        if self.len() < 2 {
-            true
-        } else {
-            let len = self.len();
-            match (self[len - 2], self[len - 1]) {
-                (Phoneme::Y, _) | (Phoneme::W, _) => true,
-                (a, b) => !(a.is_vowel() && b.is_vowel()),
-            }
-        }
-    }
-
-    fn is_match_w213(&self) -> bool {
-        if self.len() < 2 {
-            true
-        } else {
-            let len = self.len();
-            match (self[len - 2], self[len - 1]) {
-                (a, b) => !(a.is_consonant() && b.is_consonant()),
-            }
-        }
-    }
-
-    fn is_match_w214(&self) -> bool {
-        if self.len() < 1 {
-            true
-        } else {
-            self[0].is_consonant()
-        }
-    }
-
-    fn is_match_w209(&self) -> bool {
-        if self.len() < 1 {
-            true
-        } else {
-            let len = self.len();
-            self[len - 1].is_consonant()
-        }
-    }
-
-    fn is_match_w215(&self) -> bool {
-        if self.len() < 3 {
-            true
-        } else {
-            let len = self.len();
-            match (self[len - 3], self[len - 2], self[len - 1]) {
-                (Phoneme::I, Phoneme::Y, Phoneme::I) => false,
-                (Phoneme::U, Phoneme::W, Phoneme::U) => false,
-                _ => true,
-            }
-        }
-    }
-}
 
 #[derive(Debug)]
 pub struct CandidateWord {

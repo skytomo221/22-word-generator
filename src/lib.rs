@@ -1,6 +1,7 @@
 pub mod convert;
 pub mod language;
 pub mod phoneme;
+pub mod phonotactics;
 pub mod recipe;
 
 #[cfg(test)]
@@ -55,7 +56,6 @@ mod tests {
         assert_eq!(phonemes_to_loan(&ipa_to_phonemes("møːɡən")), "meg-n");
         assert_eq!(phonemes_to_loan(&ipa_to_phonemes("knʲiɡə")), "knig-");
     }
-
 
     /*
     #[test]
