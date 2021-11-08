@@ -10,14 +10,14 @@ cat
 |:-:|:-:|
 |bimat|1.588295|
 |makat|1.556029|
+|limat|1.529310|
+|matoc|1.513776|
 |matil|1.473712|
 |bikat|1.424202|
 |matol|1.418403|
-|maton|1.418289|
-|matot|1.418289|
-|malat|1.416652|
-|matal|1.416652|
-|komat|1.400469|
+|matod|1.418289|
+|matog|1.418289|
+|matok|1.418289|
 
 ## Origins
 
@@ -32,7 +32,7 @@ Weight sum: 4307.36075
 |pt|240|0.0557|gato|ɡato|gato|
 |ru|205.75|0.0478|кошка|koʂkə|kocka|
 |fr|176.95|0.0411|chat|ʃa|ca|
-|ar|137|0.0318|قِطّ|qitˤtˤ|qitt|
+|ar|137|0.0318|قِطّ|qitˤtˤ|kitt|
 |ja|126.26075|0.0293|ねこ|ne̞ko̞|neko|
 |id|121.3|0.0282|kucing|ku.ʧiŋ|kutcin|
 |ur|119.8|0.0278|بلّی|viḍālī|vidali|

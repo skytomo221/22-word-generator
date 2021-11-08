@@ -9,15 +9,15 @@ like
 |Word|Score|
 |:-:|:-:|
 |cikarab|2.011248|
+|cikarav|1.995435|
 |sikaran|1.977005|
+|wanikar|1.974623|
 |cixikar|1.974599|
+|larasan|1.974292|
+|cikaram|1.947733|
 |mikaran|1.947733|
-|cikaran|1.947692|
-|gikaran|1.947692|
-|likaran|1.947692|
-|nikaran|1.947692|
-|pikaran|1.947692|
-|ranikar|1.947692|
+|bikaran|1.947692|
+|cikarag|1.947692|
 
 ## Origins
 

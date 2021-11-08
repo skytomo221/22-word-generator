@@ -14,10 +14,10 @@ eat
 |kajer|1.043540|
 |mekan|1.031156|
 |kokan|1.031109|
+|kayer|1.015588|
+|kames|1.005048|
 |kajit|0.980436|
 |kaber|0.978727|
-|kaser|0.968158|
-|kabit|0.956675|
 
 ## Origins
 

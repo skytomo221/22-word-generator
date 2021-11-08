@@ -11,13 +11,13 @@ language name
 |titesis|1.992656|
 |tidesis|1.945378|
 |titises|1.941678|
+|zetitis|1.941678|
 |desitis|1.928795|
 |vesitis|1.928765|
 |titunes|1.894325|
+|zetitun|1.894325|
 |tisized|1.878124|
 |batites|1.874261|
-|bazetit|1.874261|
-|titudes|1.863015|
 
 ## Origins
 

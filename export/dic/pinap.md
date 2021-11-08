@@ -1,4 +1,4 @@
-# mapeb
+# pinap
 
 ## Meaning
 
@@ -8,16 +8,16 @@ apple
 
 |Word|Score|
 |:-:|:-:|
-|mapeb|1.311903|
-|sapeb|1.311903|
-|napeb|1.200551|
-|sapok|1.121219|
-|mapok|1.121077|
-|mapel|1.114546|
-|sapel|1.114546|
-|pinab|1.098103|
-|sapom|1.066813|
-|mapom|1.066672|
+|pinap|1.601452|
+|komap|1.594843|
+|kosap|1.512864|
+|pisap|1.417377|
+|pimap|1.417236|
+|konap|1.401341|
+|rinap|1.393763|
+|binap|1.364592|
+|sinap|1.364592|
+|finap|1.364451|
 
 ## Origins
 
