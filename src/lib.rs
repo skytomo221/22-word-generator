@@ -1,56 +1,78 @@
 pub mod convert;
+pub mod language;
+pub mod phoneme;
 
 #[cfg(test)]
 mod tests {
-    use crate::convert::*;
+    use crate::language::Language;
+    use crate::language::StringExt;
 
     #[test]
+    fn language_test() {
+        assert_eq!(Language::Chinese.to_string(), "zh");
+        assert_eq!("zh".to_string().iso_639().unwrap(), Language::Chinese);
+    }
+
+    use crate::convert::{phonemes_to_loan, ipa_to_phonemes};
+    #[test]
     fn test_language_to_latin() {
-        assert_eq!(to_latin("ˈlæŋɡwɪd͡ʒ"), "langwidj");
-        assert_eq!(to_latin("ˈlẽŋ.ɡwa"), "lengwa");
-        assert_eq!(to_latin("bʱɑː.ʂɑː"), "baca");
-        assert_eq!(to_latin("lĩ.ɡwɐ"), "ligwa");
-        assert_eq!(to_latin("(j)ɪˈzɨk"), "yizik");
-        assert_eq!(to_latin("lɑ̃ɡ"), "lag");
-        assert_eq!(to_latin("ɡẽ̞ŋɡo̞"), "gengo");
-        assert_eq!(to_latin("baˈhasa"), "bahasa");
-        assert_eq!(to_latin("zʊ.bɑːn"), "zuban");
-        assert_eq!(to_latin("ˈʃpʁaːxə"), "cpraxə");
+        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("ˈlæŋɡwɪd͡ʒ")), "langwidj");
+        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("ˈlẽŋ.ɡwa")), "lengwa");
+        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("bʱɑː.ʂɑː")), "baca");
+        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("lĩ.ɡwɐ")), "ligwa");
+        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("(j)ɪˈzɨk")), "yizik");
+        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("lɑ̃ɡ")), "lag");
+        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("ɡẽ̞ŋɡo̞")), "gengo");
+        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("baˈhasa")), "bahasa");
+        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("zʊ.bɑːn")), "zuban");
+        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("ˈʃpʁaːxə")), "cprax-");
     }
 
     #[test]
     fn test_cat_to_latin() {
-        assert_eq!(to_latin("māo"), "mao");
-        assert_eq!(to_latin("kæt"), "kat");
-        assert_eq!(to_latin("ˈɡa.t̪o"), "gato");
-        assert_eq!(to_latin("bɪl̪.l̪iː"), "billi");
-        assert_eq!(to_latin("biṛal"), "biral");
-        assert_eq!(to_latin("ˈɡä.t̪ʊ"), "gatu");
-        assert_eq!(to_latin("ˈkoʂkə"), "kockə");
-        assert_eq!(to_latin("ʃa"), "ca");
-        assert_eq!(to_latin("qiṭṭ"), "kitt");
-        assert_eq!(to_latin("ne̞ko̞"), "neko");
-        assert_eq!(to_latin("kut͡ʃɪŋ"), "kutcin");
-        assert_eq!(to_latin("billī"), "billi");
-        assert_eq!(to_latin("ˈkatsə"), "katsə");
+        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("māo")), "mao");
+        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("kæt")), "kat");
+        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("ˈɡa.t̪o")), "gato");
+        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("bɪl̪.l̪iː")), "billi");
+        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("biṛal")), "biral");
+        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("ˈɡä.t̪ʊ")), "gatu");
+        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("ˈkoʂkə")), "kock-");
+        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("ʃa")), "ca");
+        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("qiṭṭ")), "kitt");
+        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("ne̞ko̞")), "neko");
+        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("kut͡ʃɪŋ")), "kutcin");
+        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("billī")), "billi");
+        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("ˈkatsə")), "kats-");
     }
 
     #[test]
+    fn test_to_latin() {
+        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("ʃpʁaːxə")), "cprax-");
+        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("koʂkə")), "kock-");
+        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("qitˤtˤ")), "kitt");
+        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("jabɫəkə")), "yabl-k-");
+        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("møːɡən")), "meg-n");
+        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("knʲiɡə")), "knig-");
+    }
+
+    /*
+    #[test]
     fn test_cat_to_ipa() {
-        assert_eq!(to_latin(&to_ipa("貓", "zh").unwrap()), "mau");
-        assert_eq!(to_latin(&to_ipa("cat", "en").unwrap()), "kat");
-        assert_eq!(to_latin(&to_ipa("gato", "es").unwrap()), "gato");
-        assert_eq!(to_latin(&to_ipa("बिल्ली", "hi").unwrap()), "billi");
+        assert_eq!(to_phonemes(&to_ipa("貓", "zh").unwrap()), "mau");
+        assert_eq!(to_phonemes(&to_ipa("cat", "en").unwrap()), "kat");
+        assert_eq!(to_phonemes(&to_ipa("gato", "es").unwrap()), "gato");
+        assert_eq!(to_phonemes(&to_ipa("बिल्ली", "hi").unwrap()), "billi");
         // assert_eq!(to_latin(&to_ipa("বিড়াল", "bn").unwrap()), "biral");
-        assert_eq!(to_latin(&to_ipa("gato", "pt").unwrap()), "gato");
-        assert_eq!(to_latin(&to_ipa("кошка", "ru").unwrap()), "kockə");
+        assert_eq!(to_phonemes(&to_ipa("gato", "pt").unwrap()), "gato");
+        assert_eq!(to_phonemes(&to_ipa("кошка", "ru").unwrap()), "kockə");
         // assert_eq!(to_latin(&to_ipa("chat", "fr").unwrap()), "ca");
         // assert_eq!(to_latin(&to_ipa("قط", "ar").unwrap()), "kitt");
-        assert_eq!(to_latin(&to_ipa("ねこ", "ja").unwrap()), "neko");
+        assert_eq!(to_phonemes(&to_ipa("ねこ", "ja").unwrap()), "neko");
         // assert_eq!(to_latin(&to_ipa("kucing", "id").unwrap()), "kutcin");
         // assert_eq!(to_latin(&to_ipa("بلّی", "ur").unwrap()), "billi");
-        assert_eq!(to_latin(&to_ipa("katze", "de").unwrap()), "katsə");
+        assert_eq!(to_phonemes(&to_ipa("katze", "de").unwrap()), "katsə");
     }
+
 
     #[test]
     fn test_ipa() {
@@ -58,7 +80,7 @@ mod tests {
         let word = "بلّی";
         println!("word: {}, IPA: {}", word, to_ipa(word, lang).unwrap());
     }
-
+    */
     /*
     use crate::main::*;
     #[test]

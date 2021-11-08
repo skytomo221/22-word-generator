@@ -1,0 +1,64 @@
+{
+    // IntelliSense を使用して利用可能な属性を学べます。
+    // 既存の属性の説明をホバーして表示します。
+    // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in library 'bacitit-word-generator'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--lib",
+                    "--package=bacitit-word-generator"
+                ],
+                "filter": {
+                    "name": "bacitit-word-generator",
+                    "kind": "lib"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'bacitit-word-generator'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=bacitit-word-generator",
+                    "--package=bacitit-word-generator"
+                ],
+                "filter": {
+                    "name": "bacitit-word-generator",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'bacitit-word-generator'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=bacitit-word-generator",
+                    "--package=bacitit-word-generator"
+                ],
+                "filter": {
+                    "name": "bacitit-word-generator",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}

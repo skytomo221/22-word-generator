@@ -1,5 +1,7 @@
 use std::fs;
 
+use crate::phoneme::Phoneme;
+
 fn language_to_filename(language: &str) -> Option<String> {
     match language {
         "zh" => Some("cmn_hani_broad.tsv".into()),
@@ -35,121 +37,206 @@ pub fn to_ipa(word: &str, lang: &str) -> Option<String> {
     None
 }
 
-fn ipa_to_alphabets(c: &char) -> Option<String> {
+fn ipa_to_phoneme(c: &char) -> Option<Phoneme> {
     match c {
-        'p' => Some("p".into()),
-        'b' => Some("b".into()),
-        't' => Some("t".into()),
-        'd' => Some("d".into()),
-        'ʈ' => Some("t".into()),
-        'ɖ' => Some("d".into()),
-        'c' => Some("k".into()),
-        'ɟ' => Some("g".into()),
-        'k' => Some("k".into()),
-        'ɡ' => Some("g".into()),
-        'q' => Some("k".into()),
-        'ɢ' => Some("g".into()),
-        'm' => Some("m".into()),
-        'ɱ' => Some("m".into()),
-        'n' => Some("n".into()),
-        'ɳ' => Some("n".into()),
-        'ɲ' => Some("n".into()),
-        'ŋ' => Some("n".into()),
-        'ɴ' => Some("n".into()),
-        'ʙ' => Some("b".into()),
-        'r' => Some("r".into()),
-        'ʀ' => Some("r".into()),
-        'ⱱ' => Some("v".into()),
-        'ɾ' => Some("r".into()),
-        'ɽ' => Some("r".into()),
-        'ɸ' => Some("f".into()),
-        'β' => Some("v".into()),
-        'f' => Some("f".into()),
-        'v' => Some("v".into()),
-        'θ' => Some("s".into()),
-        'ð' => Some("z".into()),
-        's' => Some("s".into()),
-        'z' => Some("z".into()),
-        'ʃ' => Some("c".into()),
-        'ʒ' => Some("j".into()),
-        'ʂ' => Some("c".into()),
-        'ʐ' => Some("j".into()),
-        'ç' => Some("x".into()),
-        'ʝ' => Some("i".into()),
-        'x' => Some("x".into()),
-        'ɣ' => Some("g".into()),
-        'χ' => Some("x".into()),
-        'ʁ' => Some("r".into()),
-        'ħ' => Some("x".into()),
-        'ʕ' => Some("u".into()),
-        'ʜ' => Some("x".into()),
-        'ʢ' => Some("u".into()),
-        'h' => Some("h".into()),
-        'ɦ' => Some("x".into()),
-        'ʋ' => Some("w".into()),
-        'ɹ' => Some("r".into()),
-        'ɻ' => Some("r".into()),
-        'j' => Some("y".into()),
-        'ɰ' => Some("w".into()),
-        'ɬ' => Some("c".into()),
-        'ɮ' => Some("j".into()),
-        'l' => Some("l".into()),
-        'ɭ' => Some("l".into()),
-        'ʎ' => Some("w".into()),
-        'ʟ' => Some("w".into()),
-        'ɺ' => Some("r".into()),
-        'ɕ' => Some("c".into()),
-        'ʑ' => Some("j".into()),
-        'ɧ' => Some("c".into()),
-        'ɫ' => Some("l".into()),
-        'ɥ' => Some("w".into()),
-        'ʍ' => Some("w".into()),
-        'w' => Some("w".into()),
-        'a' => Some("a".into()),
-        'ɑ' => Some("a".into()),
-        'ʌ' => Some("a".into()),
-        'æ' => Some("a".into()),
-        'ɐ' => Some("a".into()),
-        'ɶ' => Some("a".into()),
-        'ä' => Some("a".into()),
-        'ɛ' => Some("e".into()),
-        'e' => Some("e".into()),
-        'ø' => Some("e".into()),
-        'ɘ' => Some("e".into()),
-        'i' => Some("i".into()),
-        'y' => Some("i".into()),
-        'ɨ' => Some("i".into()),
-        'ɪ' => Some("i".into()),
-        'ʏ' => Some("i".into()),
-        'o' => Some("o".into()),
-        'ɔ' => Some("o".into()),
-        'ɵ' => Some("o".into()),
-        'ɤ' => Some("o".into()),
-        'ɒ' => Some("o".into()),
-        'u' => Some("u".into()),
-        'ɯ' => Some("u".into()),
-        'ʉ' => Some("u".into()),
-        'ʊ' => Some("u".into()),
-        'ə' => Some("ə".into()),
-        'ʦ' => Some("ts".into()),
-        'ʣ' => Some("dz".into()),
-        'ʧ' => Some("tc".into()),
-        'ʤ' => Some("dj".into()),
-        'ʨ' => Some("tc".into()),
-        'ʥ' => Some("dz".into()),
+        'p' => Some(Phoneme::P),
+        'b' => Some(Phoneme::B),
+        't' => Some(Phoneme::T),
+        'd' => Some(Phoneme::D),
+        'ʈ' => Some(Phoneme::T),
+        'ɖ' => Some(Phoneme::D),
+        'c' => Some(Phoneme::K),
+        'ɟ' => Some(Phoneme::G),
+        'k' => Some(Phoneme::K),
+        'ɡ' => Some(Phoneme::G),
+        'q' => Some(Phoneme::K),
+        'ɢ' => Some(Phoneme::G),
+        'm' => Some(Phoneme::M),
+        'ɱ' => Some(Phoneme::M),
+        'n' => Some(Phoneme::N),
+        'ɳ' => Some(Phoneme::N),
+        'ɲ' => Some(Phoneme::N),
+        'ŋ' => Some(Phoneme::N),
+        'ɴ' => Some(Phoneme::N),
+        'ʙ' => Some(Phoneme::B),
+        'r' => Some(Phoneme::R),
+        'ʀ' => Some(Phoneme::R),
+        'ⱱ' => Some(Phoneme::V),
+        'ɾ' => Some(Phoneme::R),
+        'ɽ' => Some(Phoneme::R),
+        'ɸ' => Some(Phoneme::F),
+        'β' => Some(Phoneme::V),
+        'f' => Some(Phoneme::F),
+        'v' => Some(Phoneme::V),
+        'θ' => Some(Phoneme::S),
+        'ð' => Some(Phoneme::Z),
+        's' => Some(Phoneme::S),
+        'z' => Some(Phoneme::Z),
+        'ʃ' => Some(Phoneme::C),
+        'ʒ' => Some(Phoneme::J),
+        'ʂ' => Some(Phoneme::C),
+        'ʐ' => Some(Phoneme::J),
+        'ç' => Some(Phoneme::X),
+        'ʝ' => Some(Phoneme::I),
+        'x' => Some(Phoneme::X),
+        'ɣ' => Some(Phoneme::G),
+        'χ' => Some(Phoneme::X),
+        'ʁ' => Some(Phoneme::R),
+        'ħ' => Some(Phoneme::X),
+        'ʕ' => Some(Phoneme::U),
+        'ʜ' => Some(Phoneme::X),
+        'ʢ' => Some(Phoneme::U),
+        'h' => Some(Phoneme::H),
+        'ɦ' => Some(Phoneme::X),
+        'ʋ' => Some(Phoneme::W),
+        'ɹ' => Some(Phoneme::R),
+        'ɻ' => Some(Phoneme::R),
+        'j' => Some(Phoneme::Y),
+        'ɰ' => Some(Phoneme::W),
+        'ɬ' => Some(Phoneme::C),
+        'ɮ' => Some(Phoneme::J),
+        'l' => Some(Phoneme::L),
+        'ɭ' => Some(Phoneme::L),
+        'ʎ' => Some(Phoneme::W),
+        'ʟ' => Some(Phoneme::W),
+        'ɺ' => Some(Phoneme::R),
+        'ɕ' => Some(Phoneme::C),
+        'ʑ' => Some(Phoneme::J),
+        'ɧ' => Some(Phoneme::C),
+        'ɫ' => Some(Phoneme::L),
+        'ɥ' => Some(Phoneme::W),
+        'ʍ' => Some(Phoneme::W),
+        'w' => Some(Phoneme::W),
+        'a' => Some(Phoneme::A),
+        'ɑ' => Some(Phoneme::A),
+        'ʌ' => Some(Phoneme::A),
+        'æ' => Some(Phoneme::A),
+        'ɐ' => Some(Phoneme::A),
+        'ɶ' => Some(Phoneme::A),
+        'ä' => Some(Phoneme::A),
+        'ɛ' => Some(Phoneme::E),
+        'e' => Some(Phoneme::E),
+        'ø' => Some(Phoneme::E),
+        'ɘ' => Some(Phoneme::E),
+        'i' => Some(Phoneme::I),
+        'y' => Some(Phoneme::I),
+        'ɨ' => Some(Phoneme::I),
+        'ɪ' => Some(Phoneme::I),
+        'ʏ' => Some(Phoneme::I),
+        'o' => Some(Phoneme::O),
+        'ɔ' => Some(Phoneme::O),
+        'ɵ' => Some(Phoneme::O),
+        'ɤ' => Some(Phoneme::O),
+        'ɒ' => Some(Phoneme::O),
+        'u' => Some(Phoneme::U),
+        'ɯ' => Some(Phoneme::U),
+        'ʉ' => Some(Phoneme::U),
+        'ʊ' => Some(Phoneme::U),
+        'ə' => Some(Phoneme::SCHWA),
         _ => None,
     }
 }
 
-pub fn to_latin(word: &str) -> String {
+pub fn ipa_to_phonemes(word: &str) -> Vec<Phoneme> {
     use unicode_normalization::UnicodeNormalization;
-    let word = word.nfd().to_string();
-    let mut latins = String::new();
+    let word = word
+        .nfd()
+        .to_string()
+        .replace("ʦ", "ts")
+        .replace("ʣ", "dz")
+        .replace("ʧ", "tʃ")
+        .replace("ʤ", "dʒ")
+        .replace("ʨ", "tɕ")
+        .replace("ʥ", "dʑ");
+    let mut alphabets = vec![];
     for c in word.chars() {
-        match ipa_to_alphabets(&c) {
-            Some(x) => latins += &x,
+        match ipa_to_phoneme(&c) {
+            Some(x) => alphabets.push(x),
             None => {}
         }
     }
-    latins
+    alphabets
+}
+
+pub fn phoneme_to_string(phoneme: &Phoneme) -> String {
+    match phoneme {
+        Phoneme::P => "p".into(),
+        Phoneme::B => "b".into(),
+        Phoneme::T => "t".into(),
+        Phoneme::D => "d".into(),
+        Phoneme::K => "k".into(),
+        Phoneme::G => "g".into(),
+        Phoneme::M => "m".into(),
+        Phoneme::N => "n".into(),
+        Phoneme::R => "r".into(),
+        Phoneme::F => "f".into(),
+        Phoneme::V => "v".into(),
+        Phoneme::S => "s".into(),
+        Phoneme::Z => "z".into(),
+        Phoneme::C => "c".into(),
+        Phoneme::J => "j".into(),
+        Phoneme::X => "x".into(),
+        Phoneme::H => "h".into(),
+        Phoneme::Y => "y".into(),
+        Phoneme::L => "l".into(),
+        Phoneme::W => "w".into(),
+        Phoneme::I => "i".into(),
+        Phoneme::U => "u".into(),
+        Phoneme::E => "e".into(),
+        Phoneme::SCHWA => "-".into(),
+        Phoneme::O => "o".into(),
+        Phoneme::A => "a".into(),
+    }
+}
+
+pub fn phonemes_to_loan(phonemes: &Vec<Phoneme>) -> String {
+    phonemes
+        .iter()
+        .map(|p| phoneme_to_string(p))
+        .collect::<Vec<String>>()
+        .join("")
+}
+
+pub fn loan_to_phoneme(c: &char) -> Option<Phoneme> {
+    match c {
+        'p' => Some(Phoneme::P),
+        'b' => Some(Phoneme::B),
+        't' => Some(Phoneme::T),
+        'd' => Some(Phoneme::D),
+        'k' => Some(Phoneme::K),
+        'g' => Some(Phoneme::G),
+        'm' => Some(Phoneme::M),
+        'n' => Some(Phoneme::N),
+        'r' => Some(Phoneme::R),
+        'ⱱ' => Some(Phoneme::V),
+        'f' => Some(Phoneme::F),
+        'v' => Some(Phoneme::V),
+        's' => Some(Phoneme::S),
+        'z' => Some(Phoneme::Z),
+        'c' => Some(Phoneme::C),
+        'j' => Some(Phoneme::Y),
+        'x' => Some(Phoneme::X),
+        'h' => Some(Phoneme::H),
+        'y' => Some(Phoneme::Y),
+        'l' => Some(Phoneme::L),
+        'w' => Some(Phoneme::W),
+        'a' => Some(Phoneme::A),
+        'e' => Some(Phoneme::E),
+        'i' => Some(Phoneme::I),
+        'o' => Some(Phoneme::O),
+        'u' => Some(Phoneme::U),
+        '-' => Some(Phoneme::SCHWA),
+        _ => None,
+    }
+}
+
+pub fn loan_to_phonemes(word: &str) -> Vec<Phoneme> {
+    let mut alphabets = vec![];
+    for c in word.chars() {
+        match loan_to_phoneme(&c) {
+            Some(x) => alphabets.push(x),
+            None => {}
+        }
+    }
+    alphabets
 }

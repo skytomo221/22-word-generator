@@ -1,12 +1,17 @@
+extern crate bacitit_word_generator;
+
+use bacitit_word_generator::convert;
+use bacitit_word_generator::phoneme::Phoneme;
+use serde::de::{self, Deserializer, MapAccess, SeqAccess, Visitor};
+use serde::ser::{SerializeStruct, Serializer};
 use serde::{Deserialize, Serialize};
 use std::cmp::Ordering;
 use std::collections::BTreeMap;
 use std::collections::BTreeSet;
+use std::fmt;
 use std::fs::File;
 use std::io::BufReader;
-use std::{cmp, fs, io::Write};
-
-mod convert;
+use std::{fs, io::Write};
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Recipe {
@@ -27,12 +32,172 @@ pub struct SuperWord {
     origins: Vec<Origin>,
 }
 
-#[derive(Serialize, Deserialize, Debug, Clone)]
+#[derive(Debug, Clone)]
 pub struct Origin {
     language: String,
     word: String,
     ipa: Option<String>,
-    loan: Option<String>,
+    loan: Option<Vec<Phoneme>>,
+}
+
+impl Serialize for Origin {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: Serializer,
+    {
+        let mut state = serializer.serialize_struct("Origin", 4)?;
+        state.serialize_field("language", &self.language)?;
+        state.serialize_field("word", &self.word)?;
+        state.serialize_field("ipa", &self.ipa)?;
+        state.serialize_field(
+            "loan",
+            &match &self.loan {
+                Some(a) => Some(convert::phonemes_to_loan(a)),
+                None => None,
+            },
+        )?;
+        state.end()
+    }
+}
+
+impl<'de> serde::de::Deserialize<'de> for Origin {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: Deserializer<'de>,
+    {
+        enum Field {
+            Language,
+            Word,
+            IPA,
+            Loan,
+        }
+
+        impl<'de> serde::de::Deserialize<'de> for Field {
+            fn deserialize<D>(deserializer: D) -> Result<Field, D::Error>
+            where
+                D: Deserializer<'de>,
+            {
+                struct FieldVisitor;
+
+                impl<'de> Visitor<'de> for FieldVisitor {
+                    type Value = Field;
+
+                    fn expecting(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
+                        formatter.write_str("`language`, `word`, `ipa` or `loan`")
+                    }
+
+                    fn visit_str<E>(self, value: &str) -> Result<Field, E>
+                    where
+                        E: de::Error,
+                    {
+                        match value {
+                            "language" => Ok(Field::Language),
+                            "word" => Ok(Field::Word),
+                            "ipa" => Ok(Field::IPA),
+                            "loan" => Ok(Field::Loan),
+                            _ => Err(de::Error::unknown_field(value, FIELDS)),
+                        }
+                    }
+                }
+
+                deserializer.deserialize_identifier(FieldVisitor)
+            }
+        }
+
+        struct DurationVisitor;
+
+        impl<'de> Visitor<'de> for DurationVisitor {
+            type Value = Origin;
+
+            fn expecting(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
+                formatter.write_str("struct Duration")
+            }
+
+            fn visit_seq<V>(self, mut seq: V) -> Result<Origin, V::Error>
+            where
+                V: SeqAccess<'de>,
+            {
+                let language = seq
+                    .next_element()?
+                    .ok_or_else(|| de::Error::invalid_length(0, &self))?;
+                let word = seq
+                    .next_element()?
+                    .ok_or_else(|| de::Error::invalid_length(1, &self))?;
+                let ipa = seq
+                    .next_element()?
+                    .ok_or_else(|| de::Error::invalid_length(2, &self))?;
+                let loan = seq
+                    .next_element()?
+                    .ok_or_else(|| de::Error::invalid_length(3, &self))?;
+                Ok(Origin {
+                    language,
+                    word,
+                    ipa,
+                    loan,
+                })
+            }
+
+            fn visit_map<V>(self, mut map: V) -> Result<Origin, V::Error>
+            where
+                V: MapAccess<'de>,
+            {
+                let mut language = None;
+                let mut word = None;
+                let mut ipa = None;
+                let mut loan = None;
+                while let Some(key) = map.next_key()? {
+                    match key {
+                        Field::Language => {
+                            if language.is_some() {
+                                return Err(de::Error::duplicate_field("language"));
+                            }
+                            language = Some(map.next_value()?);
+                        }
+                        Field::Word => {
+                            if word.is_some() {
+                                return Err(de::Error::duplicate_field("word"));
+                            }
+                            word = Some(map.next_value()?);
+                        }
+                        Field::IPA => {
+                            if ipa.is_some() {
+                                return Err(de::Error::duplicate_field("ipa"));
+                            }
+                            ipa = Some(map.next_value()?);
+                        }
+                        Field::Loan => {
+                            if loan.is_some() {
+                                return Err(de::Error::duplicate_field("loan"));
+                            }
+                            loan = Some(match map.next_value::<Option<String>>()? {
+                                Some(s) => Some(convert::loan_to_phonemes(&s)),
+                                None => None,
+                            });
+                        }
+                    }
+                }
+                let language = language.ok_or_else(|| de::Error::missing_field("language"))?;
+                let word = word.ok_or_else(|| de::Error::missing_field("word"))?;
+                let ipa = match ipa {
+                    Some(s) => Some(s),
+                    None => None,
+                };
+                let loan = match loan {
+                    Some(s) => s,
+                    None => None,
+                };
+                Ok(Origin {
+                    language,
+                    word,
+                    ipa,
+                    loan,
+                })
+            }
+        }
+
+        const FIELDS: &'static [&'static str] = &["language", "word", "ipa", "loan"];
+        deserializer.deserialize_struct("Duration", FIELDS, DurationVisitor)
+    }
 }
 
 trait CharExt {
@@ -40,38 +205,42 @@ trait CharExt {
     fn is_consonant(&self) -> bool;
 }
 
-impl CharExt for char {
+impl CharExt for Phoneme {
     fn is_vowel(&self) -> bool {
-        *self == 'i' || *self == 'e' || *self == 'a' || *self == 'o' || *self == 'u'
+        match *self {
+            Self::A | Self::E | Self::I | Self::O | Self::U => true,
+            _ => false,
+        }
     }
 
     fn is_consonant(&self) -> bool {
-        *self == 'p'
-            || *self == 'b'
-            || *self == 't'
-            || *self == 'd'
-            || *self == 'k'
-            || *self == 'g'
-            || *self == 'm'
-            || *self == 'n'
-            || *self == 'r'
-            || *self == 'f'
-            || *self == 'v'
-            || *self == 's'
-            || *self == 'z'
-            || *self == 'c'
-            || *self == 'j'
-            || *self == 'x'
-            || *self == 'h'
-            || *self == 'l'
-            || *self == 'y'
-            || *self == 'w'
+        match *self {
+            Self::P
+            | Self::B
+            | Self::T
+            | Self::D
+            | Self::K
+            | Self::G
+            | Self::M
+            | Self::N
+            | Self::R
+            | Self::F
+            | Self::V
+            | Self::S
+            | Self::Z
+            | Self::C
+            | Self::J
+            | Self::X
+            | Self::H
+            | Self::L
+            | Self::Y
+            | Self::W => true,
+            _ => false,
+        }
     }
 }
 
 pub trait StringExt {
-    fn nth(&self, n: usize) -> Option<char>;
-    fn rev_nth(&self, n: usize) -> Option<char>;
     fn is_match_w212(&self) -> bool;
     fn is_match_w209(&self) -> bool;
     fn is_match_w213(&self) -> bool;
@@ -79,50 +248,57 @@ pub trait StringExt {
     fn is_match_w215(&self) -> bool;
 }
 
-impl StringExt for String {
-    fn nth(&self, n: usize) -> Option<char> {
-        self.chars().nth(n)
-    }
-
-    fn rev_nth(&self, n: usize) -> Option<char> {
-        self.chars().rev().nth(n)
-    }
-
+impl StringExt for Vec<Phoneme> {
     fn is_match_w212(&self) -> bool {
-        match (self.rev_nth(1), self.rev_nth(0)) {
-            (Some('y'), Some(_)) => true,
-            (Some('w'), Some(_)) => true,
-            (Some(a), Some(b)) => !(a.is_vowel() && b.is_vowel()),
-            _ => true,
+        if self.len() < 2 {
+            true
+        } else {
+            let len = self.len();
+            match (self[len - 2], self[len - 1]) {
+                (Phoneme::Y, _) | (Phoneme::W, _) => true,
+                (a, b) => !(a.is_vowel() && b.is_vowel()),
+            }
         }
     }
 
     fn is_match_w213(&self) -> bool {
-        match (self.rev_nth(1), self.rev_nth(0)) {
-            (Some(a), Some(b)) => !(a.is_consonant() && b.is_consonant()),
-            _ => true,
+        if self.len() < 2 {
+            true
+        } else {
+            let len = self.len();
+            match (self[len - 2], self[len - 1]) {
+                (a, b) => !(a.is_consonant() && b.is_consonant()),
+            }
         }
     }
 
     fn is_match_w214(&self) -> bool {
-        match self.nth(0) {
-            Some(a) => a.is_consonant(),
-            _ => true,
+        if self.len() < 1 {
+            true
+        } else {
+            self[0].is_consonant()
         }
     }
 
     fn is_match_w209(&self) -> bool {
-        match self.rev_nth(0) {
-            Some(a) => a.is_consonant(),
-            _ => true,
+        if self.len() < 1 {
+            true
+        } else {
+            let len = self.len();
+            self[len - 1].is_consonant()
         }
     }
 
     fn is_match_w215(&self) -> bool {
-        match (self.rev_nth(2), self.rev_nth(1), self.rev_nth(0)) {
-            (Some('i'), Some('y'), Some('i')) => false,
-            (Some('u'), Some('w'), Some('u')) => false,
-            _ => true,
+        if self.len() < 3 {
+            true
+        } else {
+            let len = self.len();
+            match (self[len - 3], self[len - 2], self[len - 1]) {
+                (Phoneme::I, Phoneme::Y, Phoneme::I) => false,
+                (Phoneme::U, Phoneme::W, Phoneme::U) => false,
+                _ => true,
+            }
         }
     }
 }
@@ -130,12 +306,19 @@ impl StringExt for String {
 #[derive(Debug)]
 pub struct CandidateWord {
     pub score: f64,
-    pub word: String,
+    pub word: Vec<Phoneme>,
 }
 
 impl PartialEq for CandidateWord {
     fn eq(&self, other: &Self) -> bool {
-        self.word == other.word
+        (self.word.len() == other.word.len()) &&  // zip stops at the shortest
+        self.word.iter()
+       .zip(other.word.iter())
+       .all(|(a,b)| a == b)
+    }
+
+    fn ne(&self, other: &Self) -> bool {
+        self.score == other.score && self.word == other.word
     }
 }
 
@@ -210,46 +393,38 @@ impl CandidateWords<'_> {
         }
     }
 
-    fn cadidate_phonemes(&self, n: i32) -> BTreeSet<char> {
+    fn cadidate_phonemes(&self, n: i32) -> BTreeSet<Phoneme> {
         let c_len = self.candidate_length();
         let mut set = BTreeSet::new();
         for origin in &self.super_word.origins {
             let loan = origin.loan.as_ref().unwrap();
             let len = loan.len() as i32;
             if len < c_len {
-                let start = cmp::max(0, n - (c_len - len)) as usize;
-                let end = cmp::min(len, n + 1) as usize;
-                &loan[start..end]
-                    .chars()
+                loan.iter()
                     .filter(|c| {
                         if n % 2 == 0 {
-                            c.is_consonant() || (c == &'i') || (c == &'u')
+                            c.is_consonant() || (c == &&Phoneme::I) || (c == &&Phoneme::U)
                         } else {
                             c.is_vowel()
                         }
                     })
                     .for_each(|c| {
-                        set.insert(c);
+                        set.insert(c.clone());
                     });
             } else if len > c_len {
-                let start = n as usize;
-                let end = (n + len - c_len + 1) as usize;
-                &loan[start..end]
-                    .chars()
+                loan.iter()
                     .filter(|c| {
                         if n % 2 == 0 {
-                            c.is_consonant() || (c == &'i') || (c == &'u')
+                            c.is_consonant() || (c == &&Phoneme::I) || (c == &&Phoneme::U)
                         } else {
                             c.is_vowel()
                         }
                     })
                     .for_each(|c| {
-                        set.insert(c);
+                        set.insert(c.clone());
                     });
             } else {
-                if let Some(c) = loan.nth(n as usize) {
-                    set.insert(c);
-                }
+                set.insert(loan[n as usize]);
             }
         }
         set
@@ -259,7 +434,7 @@ impl CandidateWords<'_> {
         self.calc_weight_sum();
         let vec = vec![CandidateWord {
             score: 0.0,
-            word: "".to_string(),
+            word: vec![],
         }];
         self.words = self.generate_rec(0, self.candidate_length(), vec);
     }
@@ -310,7 +485,7 @@ impl CandidateWords<'_> {
         }
     }
 
-    fn score(&self, word: &str) -> f64 {
+    fn score(&self, word: &Vec<Phoneme>) -> f64 {
         if word.len() < 2 {
             0.0
         } else {
@@ -321,7 +496,7 @@ impl CandidateWords<'_> {
                 'search: for i in (1..word.len()).rev() {
                     for j in 0..=word.len() - i {
                         let subword = &word[j..j + i];
-                        if loanword.contains(subword) {
+                        if array_in_array(subword, &loanword) {
                             score += i as f64 * self.get_population(&language) / self.weight_sum
                                 * (if i == 1 { 0.001 } else { 1.0 });
                             break 'search;
@@ -332,6 +507,44 @@ impl CandidateWords<'_> {
             score
         }
     }
+}
+
+fn array_in_array(needle: &[Phoneme], haystack: &[Phoneme]) -> bool {
+    if needle.len() > haystack.len() {
+        false
+    } else {
+        'outer: for i in 0..=(haystack.len() - needle.len()) {
+            for j in 0..needle.len() {
+                if needle[j] != haystack[i + j] {
+                    continue 'outer;
+                }
+            }
+            return true;
+        }
+        false
+    }
+}
+
+#[test]
+fn test_array_in_array() {
+    assert_eq!(
+        array_in_array(&vec![Phoneme::A, Phoneme::B], &vec![Phoneme::A, Phoneme::B]),
+        true
+    );
+    assert_eq!(
+        array_in_array(
+            &vec![Phoneme::A, Phoneme::B, Phoneme::C],
+            &vec![Phoneme::A, Phoneme::B]
+        ),
+        false
+    );
+    assert_eq!(
+        array_in_array(
+            &vec![Phoneme::A, Phoneme::B],
+            &vec![Phoneme::C, Phoneme::A, Phoneme::B]
+        ),
+        true
+    );
 }
 
 pub fn main() {
@@ -357,7 +570,7 @@ pub fn main() {
                     }
                 }
                 if origin.loan == None {
-                    match Some(convert::to_latin(&origin.ipa.as_ref().unwrap())) {
+                    match Some(convert::ipa_to_phonemes(&origin.ipa.as_ref().unwrap())) {
                         Some(loan) => origin.loan = Some(loan),
                         None => panic!(
                             "借用語に変換できませんでした。 Word: {} Language: {} IPA: {:?}",
@@ -365,7 +578,7 @@ pub fn main() {
                         ),
                     }
                 }
-                if origin.loan.as_ref().unwrap().contains("ə") {
+                if origin.loan.as_ref().unwrap().contains(&Phoneme::SCHWA) {
                     panic!(
                         "əが含まれています。 Word: {} Language: {} IPA: {:?}, loan {:?}",
                         origin.word, origin.language, origin.ipa, origin.loan
@@ -393,14 +606,19 @@ pub fn main() {
             let best_word = &candidate_words.words[0];
             let mut output = format!(
                 "# {}\n\n## Meaning\n\n{}",
-                best_word.word, candidate_words.super_word.meaning
+                convert::phonemes_to_loan(&best_word.word),
+                candidate_words.super_word.meaning
             );
             let candidates_info = {
                 let mut s = "|Word|Score|\n|:-:|:-:|\n".to_string();
                 let b = candidate_words.words.iter().take(10);
                 for c in b {
                     println!("{:?}", c);
-                    s.push_str(&format!("|{}|{:.6}|\n", c.word, c.score));
+                    s.push_str(&format!(
+                        "|{}|{:.6}|\n",
+                        convert::phonemes_to_loan(&c.word),
+                        c.score
+                    ));
                 }
                 s
             };
@@ -416,7 +634,7 @@ pub fn main() {
                         candidate_words.get_population(&language) / candidate_words.weight_sum,
                         origin.word,
                         origin.ipa.as_ref().unwrap(),
-                        origin.loan.as_ref().unwrap(),
+                        convert::phonemes_to_loan(origin.loan.as_ref().unwrap()),
                     ));
                 }
                 s
@@ -428,7 +646,11 @@ pub fn main() {
             // if let Some(note) = candidate_words.super_word.note {
             //     output.push_str(&format!("\n## Note\n\n{}\n", &note));
             // }
-            let mut f = fs::File::create(format!("./export/dic/{}.md", best_word.word)).unwrap();
+            let mut f = fs::File::create(format!(
+                "./export/dic/{}.md",
+                convert::phonemes_to_loan(&best_word.word)
+            ))
+            .unwrap();
             f.write_all(output.as_bytes()).unwrap();
             generated.insert(
                 best_word.word.clone(),
@@ -440,14 +662,19 @@ pub fn main() {
                 super_languages: super_languages.clone(),
                 super_words: super_words.clone(),
             };
-            serde_json::to_writer_pretty(&File::create("./data/result.json").unwrap(), &recipe);
+            serde_json::to_writer_pretty(&File::create("./data/result.json").unwrap(), &recipe)
+                .unwrap();
         }
         {
             let mut f = fs::File::create("./export/word-list.md").unwrap();
             let output = {
                 let mut s = "# Word List\n\n|Spell|Meaning|\n|:-:|:-:|\n".to_string();
                 for x in &generated {
-                    s.push_str(&format!("|[{0}](./dic/{0}.md)|{1}|\n", x.0, x.1));
+                    s.push_str(&format!(
+                        "|[{0}](./dic/{0}.md)|{1}|\n",
+                        convert::phonemes_to_loan(x.0),
+                        x.1
+                    ));
                 }
                 s
             };
