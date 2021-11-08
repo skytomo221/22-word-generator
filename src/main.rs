@@ -1,7 +1,5 @@
-extern crate bacitit_word_generator;
-
 use bacitit_word_generator::convert;
-use bacitit_word_generator::phoneme::Phoneme;
+use bacitit_word_generator::phoneme::{Phoneme, PhonemeExt};
 use bacitit_word_generator::recipe::{Recipe, SuperLanguage, SuperWord};
 use std::cmp::Ordering;
 use std::collections::BTreeMap;
@@ -9,46 +7,6 @@ use std::collections::BTreeSet;
 use std::fs::File;
 use std::io::BufReader;
 use std::{fs, io::Write};
-
-trait CharExt {
-    fn is_vowel(&self) -> bool;
-    fn is_consonant(&self) -> bool;
-}
-
-impl CharExt for Phoneme {
-    fn is_vowel(&self) -> bool {
-        match *self {
-            Self::A | Self::E | Self::I | Self::O | Self::U => true,
-            _ => false,
-        }
-    }
-
-    fn is_consonant(&self) -> bool {
-        match *self {
-            Self::P
-            | Self::B
-            | Self::T
-            | Self::D
-            | Self::K
-            | Self::G
-            | Self::M
-            | Self::N
-            | Self::R
-            | Self::F
-            | Self::V
-            | Self::S
-            | Self::Z
-            | Self::C
-            | Self::J
-            | Self::X
-            | Self::H
-            | Self::L
-            | Self::Y
-            | Self::W => true,
-            _ => false,
-        }
-    }
-}
 
 pub trait StringExt {
     fn is_match_w212(&self) -> bool;
