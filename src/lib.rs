@@ -1,6 +1,7 @@
 pub mod convert;
 pub mod language;
 pub mod phoneme;
+pub mod recipe;
 
 #[cfg(test)]
 mod tests {
@@ -13,7 +14,7 @@ mod tests {
         assert_eq!("zh".to_string().iso_639().unwrap(), Language::Chinese);
     }
 
-    use crate::convert::{phonemes_to_loan, ipa_to_phonemes};
+    use crate::convert::{ipa_to_phonemes, phonemes_to_loan};
     #[test]
     fn test_language_to_latin() {
         assert_eq!(phonemes_to_loan(&ipa_to_phonemes("ˈlæŋɡwɪd͡ʒ")), "langwidj");
@@ -54,6 +55,7 @@ mod tests {
         assert_eq!(phonemes_to_loan(&ipa_to_phonemes("møːɡən")), "meg-n");
         assert_eq!(phonemes_to_loan(&ipa_to_phonemes("knʲiɡə")), "knig-");
     }
+
 
     /*
     #[test]
