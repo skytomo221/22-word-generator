@@ -2,7 +2,7 @@ use bacitit_word_generator::convert;
 use bacitit_word_generator::phoneme::{Phoneme, PhonemeExt};
 use bacitit_word_generator::phonotactics::PhonotacticsExt;
 use bacitit_word_generator::recipe::{Recipe, SuperLanguage, SuperWord};
-use std::cmp::Ordering;
+use std::cmp::{self, Ordering};
 use std::collections::BTreeMap;
 use std::collections::BTreeSet;
 use std::fs::File;
@@ -106,7 +106,10 @@ impl CandidateWords<'_> {
             let loan = origin.loan.as_ref().unwrap();
             let len = loan.len() as i32;
             if len < c_len {
-                loan.iter()
+                let start = cmp::max(0, n - (c_len - len)) as usize;
+                let end = cmp::min(len, n + 1) as usize;
+                loan[start..end]
+                    .iter()
                     .filter(|c| {
                         if n % 2 == 0 {
                             c.is_consonant() || (c == &&Phoneme::I) || (c == &&Phoneme::U)
@@ -118,7 +121,10 @@ impl CandidateWords<'_> {
                         set.insert(c.clone());
                     });
             } else if len > c_len {
-                loan.iter()
+                let start = n as usize;
+                let end = (n + len - c_len + 1) as usize;
+                loan[start..end]
+                    .iter()
                     .filter(|c| {
                         if n % 2 == 0 {
                             c.is_consonant() || (c == &&Phoneme::I) || (c == &&Phoneme::U)
