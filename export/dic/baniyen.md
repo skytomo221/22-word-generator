@@ -9,15 +9,15 @@ language
 |Word|Score|
 |:-:|:-:|
 |baniyen|2.101190|
-|bawiyen|2.073377|
 |laciyen|2.043606|
 |caniyen|2.017083|
 |lacayen|1.977603|
-|cawiyen|1.961486|
-|wiyenac|1.961486|
 |yenacan|1.951080|
 |laniyen|1.947495|
 |labayen|1.946310|
+|bacanen|1.941323|
+|balayen|1.918497|
+|yenaban|1.892002|
 
 ## Origins
 

@@ -1,4 +1,4 @@
-# libus
+# libuk
 
 ## Meaning
 
@@ -8,16 +8,16 @@ book
 
 |Word|Score|
 |:-:|:-:|
-|libus|1.254546|
 |libuk|1.245582|
-|fobus|1.186311|
 |fobuk|1.177395|
-|fopuk|1.138303|
-|tabuk|1.109639|
-|lipuk|1.090304|
-|kibus|1.064037|
 |bukib|1.055073|
 |kibuk|1.055073|
+|libux|1.051344|
+|libun|1.027334|
+|libub|1.027304|
+|libur|1.027304|
+|bufon|1.017714|
+|pukib|1.015980|
 
 ## Origins
 
