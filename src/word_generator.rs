@@ -172,11 +172,11 @@ impl WordGenerator<'_> {
                 for cp in &cps {
                     let mut ncww = cw.word.clone();
                     ncww.push(*cp);
-                    if ncww.is_match_w212()
-                        && ncww.is_match_w213()
-                        && ncww.is_match_w215()
-                        && ((n == 0 && ncww.is_match_w214())
-                            || (n == len - 1 && ncww.is_match_w209())
+                    if ncww.is_match_rfc_9_3()
+                        && ncww.is_match_rfc_9_5()
+                        && ncww.is_match_rfc_9_7()
+                        && ((n == 0 && ncww.is_match_rfc_9_6())
+                            || (n == len - 1 && ncww.is_match_rfc_9_4())
                             || (n != 0 && n != len - 1))
                     {
                         let ncw = CandidateWord {
