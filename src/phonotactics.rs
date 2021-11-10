@@ -62,3 +62,61 @@ impl PhonotacticsExt for Vec<Phoneme> {
         }
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::phoneme::Phoneme;
+
+    #[test]
+    fn test_w212() {
+        assert!(vec![Phoneme::P, Phoneme::A].is_match_w212());
+        assert!(vec![Phoneme::A, Phoneme::P].is_match_w212());
+        assert!(!vec![Phoneme::A, Phoneme::A].is_match_w212());
+        assert!(vec![Phoneme::P, Phoneme::P].is_match_w212());
+        assert!(!vec![Phoneme::B, Phoneme::A, Phoneme::A].is_match_w212());
+        assert!(vec![Phoneme::A].is_match_w212());
+        assert!(vec![Phoneme::P].is_match_w212());
+        assert!(vec![].is_match_w212());
+    }
+
+    #[test]
+    fn test_w209() {
+        assert!(vec![Phoneme::T].is_match_w209());
+        assert!(vec![Phoneme::A, Phoneme::T].is_match_w209());
+        assert!(!vec![Phoneme::A].is_match_w209());
+        assert!(vec![].is_match_w209());
+    }
+
+    #[test]
+    fn test_w213() {
+        assert!(vec![Phoneme::P, Phoneme::A].is_match_w213());
+        assert!(vec![Phoneme::A, Phoneme::P].is_match_w213());
+        assert!(vec![Phoneme::A, Phoneme::A].is_match_w213());
+        assert!(!vec![Phoneme::P, Phoneme::P].is_match_w213());
+        assert!(!vec![Phoneme::A, Phoneme::B, Phoneme::B].is_match_w213());
+        assert!(vec![Phoneme::A].is_match_w213());
+        assert!(vec![Phoneme::P].is_match_w213());
+        assert!(vec![].is_match_w213());
+    }
+
+    #[test]
+    fn test_w214() {
+        assert!(vec![Phoneme::P, Phoneme::A].is_match_w214());
+        assert!(!vec![Phoneme::A, Phoneme::P].is_match_w214());
+        assert!(!vec![Phoneme::A].is_match_w214());
+        assert!(vec![Phoneme::P].is_match_w214());
+        assert!(vec![].is_match_w214());
+    }
+
+    #[test]
+    fn test_w215() {
+        assert!(vec![Phoneme::I, Phoneme::Y, Phoneme::I, Phoneme::A].is_match_w215());
+        assert!(vec![Phoneme::U, Phoneme::W, Phoneme::U, Phoneme::A].is_match_w215());
+        assert!(!vec![Phoneme::I, Phoneme::Y, Phoneme::I].is_match_w215());
+        assert!(!vec![Phoneme::U, Phoneme::W, Phoneme::U].is_match_w215());
+        assert!(!vec![Phoneme::A, Phoneme::I, Phoneme::Y, Phoneme::I].is_match_w215());
+        assert!(!vec![Phoneme::A, Phoneme::U, Phoneme::W, Phoneme::U].is_match_w215());
+        assert!(vec![].is_match_w215());
+    }
+}
