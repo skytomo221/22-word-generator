@@ -14,3 +14,10 @@ unicode-normalization = "0.1.19"
 
 [profile.release]
 debug = true
+
+[dev-dependencies]
+criterion = "0.3.5"
+
+[[bench]]
+name = "my_benchmark"
+harness = false
