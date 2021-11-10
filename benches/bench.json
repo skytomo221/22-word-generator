@@ -1,0 +1,414 @@
+{
+  "super_languages": [
+    {
+      "language": "zh",
+      "population": 1020.85
+    },
+    {
+      "language": "en",
+      "population": 818.9
+    },
+    {
+      "language": "es",
+      "population": 500.45
+    },
+    {
+      "language": "hi",
+      "population": 489.65
+    },
+    {
+      "language": "bn",
+      "population": 246.9
+    },
+    {
+      "language": "pt",
+      "population": 240
+    },
+    {
+      "language": "ru",
+      "population": 205.75
+    },
+    {
+      "language": "fr",
+      "population": 176.95
+    },
+    {
+      "language": "ar",
+      "population": 137
+    },
+    {
+      "language": "ja",
+      "population": 126.26075
+    },
+    {
+      "language": "id",
+      "population": 121.3
+    },
+    {
+      "language": "ur",
+      "population": 119.8
+    },
+    {
+      "language": "de",
+      "population": 103.55
+    },
+    {
+      "language": "te",
+      "population": 87.9
+    },
+    {
+      "language": "tr",
+      "population": 82.35
+    },
+    {
+      "language": "ko",
+      "population": 79.4
+    },
+    {
+      "language": "vi",
+      "population": 76.5
+    },
+    {
+      "language": "jv",
+      "population": 68.3
+    },
+    {
+      "language": "sw",
+      "population": 57.35
+    },
+    {
+      "language": "lo",
+      "population": 40.7
+    }
+  ],
+  "super_words": [
+    {
+      "id": 0,
+      "meaning": "language name",
+      "origins": [
+        {
+          "language": "zh",
+          "word": "二十二",
+          "ipa": "ɚ²¹³ sz̩²¹ ɚ²¹³",
+          "loan": "esze"
+        },
+        {
+          "language": "en",
+          "word": "twenty-two",
+          "ipa": "twɛnti tuː"
+        },
+        {
+          "language": "es",
+          "word": "veintidós"
+        },
+        {
+          "language": "hi",
+          "word": "बाईस"
+        },
+        {
+          "language": "pt",
+          "word": "vinte e dois",
+          "ipa": "vĩt͡ʃi e dojs"
+        },
+        {
+          "language": "ru",
+          "word": "двадцать два",
+          "ipa": "dvat͡sːɨtʲ dva"
+        },
+        {
+          "language": "fr",
+          "word": "vingt-deux",
+          "ipa": "vɛ̃ dø"
+        },
+        {
+          "language": "ar",
+          "word": "اثنان وعشرون",
+          "ipa": "iθnaːn oː ʕiʃruːn"
+        },
+        {
+          "language": "ja",
+          "word": "にじゅうに",
+          "ipa": "ɲ̟i d͡ʑɨᵝː ɲ̟i"
+        },
+        {
+          "language": "id",
+          "word": "dua puluh dua",
+          "ipa": "dua pulʊh dua"
+        },
+        {
+          "language": "ur",
+          "word": "بائیس",
+          "ipa": "bais"
+        },
+        {
+          "language": "de",
+          "word": "zweiundzwanzig",
+          "ipa": "t͡svaɪ̯ʊntt͡svant͡sɪç"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "meaning": "language",
+      "origins": [
+        {
+          "language": "zh",
+          "word": "語言"
+        },
+        {
+          "language": "en",
+          "word": "language"
+        },
+        {
+          "language": "es",
+          "word": "lengua"
+        },
+        {
+          "language": "hi",
+          "word": "भाषा"
+        },
+        {
+          "language": "bn",
+          "word": "ভাষা"
+        },
+        {
+          "language": "pt",
+          "word": "língua"
+        },
+        {
+          "language": "ru",
+          "word": "язык"
+        },
+        {
+          "language": "fr",
+          "word": "langue"
+        },
+        {
+          "language": "ar",
+          "word": "لغة"
+        },
+        {
+          "language": "ja",
+          "word": "げんご"
+        },
+        {
+          "language": "id",
+          "word": "bahasa",
+          "ipa": "bahasa"
+        },
+        {
+          "language": "ur",
+          "word": "زبان",
+          "ipa": "zəbɑːn",
+          "loan": "zaban"
+        },
+        {
+          "language": "de",
+          "word": "sprache",
+          "ipa": "ʃpʁaːxə",
+          "loan": "cpraxe"
+        }
+      ]
+    },
+    {
+      "id": 121,
+      "meaning": "cat",
+      "origins": [
+        {
+          "language": "zh",
+          "word": "貓"
+        },
+        {
+          "language": "en",
+          "word": "cat"
+        },
+        {
+          "language": "es",
+          "word": "gato"
+        },
+        {
+          "language": "hi",
+          "word": "बिल्ली"
+        },
+        {
+          "language": "bn",
+          "word": "বিড়াল",
+          "ipa": "biɽal",
+          "loan": "biral"
+        },
+        {
+          "language": "pt",
+          "word": "gato"
+        },
+        {
+          "language": "ru",
+          "word": "кошка",
+          "ipa": "koʂkə",
+          "loan": "kocka"
+        },
+        {
+          "language": "fr",
+          "word": "chat",
+          "ipa": "ʃa"
+        },
+        {
+          "language": "ar",
+          "word": "قِطّ",
+          "ipa": "qitˤtˤ",
+          "loan": "kitt"
+        },
+        {
+          "language": "ja",
+          "word": "ねこ"
+        },
+        {
+          "language": "id",
+          "word": "kucing",
+          "ipa": "ku.ʧiŋ"
+        },
+        {
+          "language": "ur",
+          "word": "بلّی",
+          "ipa": "viḍālī"
+        },
+        {
+          "language": "de",
+          "word": "katze",
+          "ipa": "katsə",
+          "loan": "katse"
+        }
+      ]
+    },
+    {
+      "id": 122,
+      "meaning": "apple",
+      "origins": [
+        {
+          "language": "zh",
+          "word": "蘋果"
+        },
+        {
+          "language": "en",
+          "word": "apple",
+          "ipa": "æpəl",
+          "loan": "apl"
+        },
+        {
+          "language": "es",
+          "word": "manzana"
+        },
+        {
+          "language": "hi",
+          "word": "सेब"
+        },
+        {
+          "language": "bn",
+          "word": "আপেল",
+          "ipa": "ˈä.peˑl"
+        },
+        {
+          "language": "pt",
+          "word": "maçã"
+        },
+        {
+          "language": "ru",
+          "word": "яблоко",
+          "ipa": "jabɫəkə",
+          "loan": "yabloko"
+        },
+        {
+          "language": "fr",
+          "word": "pomme"
+        },
+        {
+          "language": "ar",
+          "word": "تُفَّاحَة",
+          "ipa": "tuf.faː.ħa"
+        },
+        {
+          "language": "ja",
+          "word": "りんご"
+        },
+        {
+          "language": "id",
+          "word": "apel",
+          "ipa": "apəl",
+          "loan": "apel"
+        },
+        {
+          "language": "ur",
+          "word": "سیب",
+          "ipa": "seb"
+        },
+        {
+          "language": "de",
+          "word": "apfel",
+          "ipa": "apfəl",
+          "loan": "apfel"
+        }
+      ]
+    },
+    {
+      "id": 123,
+      "meaning": "red",
+      "origins": [
+        {
+          "language": "zh",
+          "word": "紅色"
+        },
+        {
+          "language": "en",
+          "word": "red"
+        },
+        {
+          "language": "es",
+          "word": "rojo"
+        },
+        {
+          "language": "hi",
+          "word": "लाल"
+        },
+        {
+          "language": "bn",
+          "word": "লাল",
+          "ipa": "lal"
+        },
+        {
+          "language": "pt",
+          "word": "vermelho"
+        },
+        {
+          "language": "ru",
+          "word": "красный"
+        },
+        {
+          "language": "fr",
+          "word": "rouge"
+        },
+        {
+          "language": "ar",
+          "word": "حُمْرَة",
+          "ipa": "ħumra"
+        },
+        {
+          "language": "ja",
+          "word": "あか"
+        },
+        {
+          "language": "id",
+          "word": "merah",
+          "ipa": "merah"
+        },
+        {
+          "language": "ur",
+          "word": "سرخ",
+          "ipa": "surx"
+        },
+        {
+          "language": "de",
+          "word": "rot"
+        }
+      ]
+    }
+  ]
+}
