@@ -7,57 +7,6 @@ pub mod word_generator;
 
 #[cfg(test)]
 mod tests {
-    use crate::language::Language;
-    use crate::language::StringExt;
-
-    #[test]
-    fn language_test() {
-        assert_eq!(Language::Chinese.to_string(), "zh");
-        assert_eq!("zh".to_string().iso_639().unwrap(), Language::Chinese);
-    }
-
-    use crate::convert::{ipa_to_phonemes, phonemes_to_loan};
-    #[test]
-    fn test_language_to_latin() {
-        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("ˈlæŋɡwɪd͡ʒ")), "langwidj");
-        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("ˈlẽŋ.ɡwa")), "lengwa");
-        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("bʱɑː.ʂɑː")), "baca");
-        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("lĩ.ɡwɐ")), "ligwa");
-        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("(j)ɪˈzɨk")), "yizik");
-        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("lɑ̃ɡ")), "lag");
-        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("ɡẽ̞ŋɡo̞")), "gengo");
-        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("baˈhasa")), "bahasa");
-        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("zʊ.bɑːn")), "zuban");
-        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("ˈʃpʁaːxə")), "cprax-");
-    }
-
-    #[test]
-    fn test_cat_to_latin() {
-        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("māo")), "mao");
-        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("kæt")), "kat");
-        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("ˈɡa.t̪o")), "gato");
-        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("bɪl̪.l̪iː")), "billi");
-        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("biṛal")), "biral");
-        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("ˈɡä.t̪ʊ")), "gatu");
-        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("ˈkoʂkə")), "kock-");
-        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("ʃa")), "ca");
-        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("qiṭṭ")), "kitt");
-        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("ne̞ko̞")), "neko");
-        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("kut͡ʃɪŋ")), "kutcin");
-        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("billī")), "billi");
-        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("ˈkatsə")), "kats-");
-    }
-
-    #[test]
-    fn test_to_latin() {
-        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("ʃpʁaːxə")), "cprax-");
-        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("koʂkə")), "kock-");
-        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("qitˤtˤ")), "kitt");
-        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("jabɫəkə")), "yabl-k-");
-        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("møːɡən")), "meg-n");
-        assert_eq!(phonemes_to_loan(&ipa_to_phonemes("knʲiɡə")), "knig-");
-    }
-
     /*
     #[test]
     fn test_cat_to_ipa() {
