@@ -12,6 +12,19 @@ pub struct Recipe {
     pub super_words: Vec<SuperWord>,
 }
 
+impl Recipe {
+    pub fn complement(self) -> Self {
+        Recipe {
+            super_words: self
+                .super_words
+                .iter()
+                .map(|super_word| super_word.clone().complement())
+                .collect(),
+            ..self
+        }
+    }
+}
+
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct SuperLanguage {
     pub language: String,
@@ -25,12 +38,79 @@ pub struct SuperWord {
     pub origins: Vec<Origin>,
 }
 
+impl SuperWord {
+    pub fn complement(self) -> Self {
+        SuperWord {
+            origins: self
+                .origins
+                .iter()
+                .map(|origin| {
+                    origin
+                        .clone()
+                        .complement_ipa()
+                        .complement_loan()
+                        .check_complement()
+                })
+                .collect(),
+            ..self
+        }
+    }
+}
+
 #[derive(Debug, Clone)]
 pub struct Origin {
     pub language: String,
     pub word: String,
     pub ipa: Option<String>,
     pub loan: Option<Vec<Phoneme>>,
+}
+
+impl Origin {
+    pub fn complement_ipa(self) -> Self {
+        match self.ipa {
+            Some(_) => self,
+            None => match convert::to_ipa(&self.word, &self.language) {
+                Some(ipa) => Origin {
+                    ipa: Some(ipa),
+                    ..self.clone()
+                },
+                None => panic!(
+                    "IPAに変換できませんでした。 Word: {} Language: {}",
+                    self.word, self.language
+                ),
+            },
+        }
+    }
+
+    pub fn complement_loan(self) -> Self {
+        match self.loan {
+            Some(_) => self,
+            None => match Some(convert::ipa_to_phonemes(&self.ipa.as_ref().unwrap())) {
+                Some(loan) => Origin {
+                    loan: Some(loan),
+                    ..self
+                },
+                None => panic!(
+                    "借用語に変換できませんでした。 Word: {} Language: {} IPA: {:?}",
+                    self.word, self.language, self.ipa
+                ),
+            },
+        }
+    }
+
+    fn contains_schwa(&self) -> bool {
+        self.loan.as_ref().unwrap().contains(&Phoneme::SCHWA)
+    }
+
+    pub fn check_complement(self) -> Self {
+        if self.contains_schwa() {
+            panic!(
+                "əが含まれています。 Word: {} Language: {} IPA: {:?}, loan {:?}",
+                self.word, self.language, self.ipa, self.loan
+            );
+        }
+        self
+    }
 }
 
 impl Serialize for Origin {
