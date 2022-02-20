@@ -1,0 +1,3 @@
+[submodule "library/wikipron"]
+	path = library/wikipron
+	url = https://github.com/CUNY-CL/wikipron.git
